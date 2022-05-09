@@ -1,6 +1,7 @@
 package com.mygdx.projectap;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -12,7 +13,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import java.awt.*;
 
 
-public class ProjectAP extends ApplicationAdapter {
+public class ProjectAP extends Game {
 	private static final float SLOW_TIME_SCALE = 0.2f;
 	private static final float FAST_TIME_SCALE = 1f;
 
