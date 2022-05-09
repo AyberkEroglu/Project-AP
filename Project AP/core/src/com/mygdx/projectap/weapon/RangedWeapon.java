@@ -10,13 +10,12 @@ public class RangedWeapon extends Weapon{
     protected Vector2 direction;
     protected int projectileCount;
 
-    public RangedWeapon(int range, Texture texture, int projectileCount) {
-        this(range,texture,projectileCount, Projectile.BULLET);
-
+    public RangedWeapon(int range, Texture texture, float velocity, int projectileCount) {
+        this(range,texture,projectileCount, velocity, Projectile.BULLET);
     }
 
-    public RangedWeapon(int range, Texture texture, int projectileCount, Projectile projectileType) {
-        super(range, texture);
+    public RangedWeapon(float range, Texture texture, int projectileCount, float velocity, Projectile projectileType) {
+        super(range, texture, velocity);
         this.projectileCount = projectileCount;
         createProjectiles(projectileCount,projectileType);
     }
@@ -29,7 +28,7 @@ public class RangedWeapon extends Weapon{
     }
 
     @Override
-    public void shoot() {
+    public void shoot(Vector2 direction) {
 
     }
 }
