@@ -1,4 +1,4 @@
-package helper;
+package com.mygdx.projectap.helper;
 
 public class Constants {
 

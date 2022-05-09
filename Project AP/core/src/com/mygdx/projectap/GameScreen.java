@@ -11,10 +11,10 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
-import helper.TileMapHelper;
-import player.Player;
+import com.mygdx.projectap.helper.TileMapHelper;
+import com.mygdx.projectap.player.Player;
 
-import static helper.Constants.PPM;
+import static com.mygdx.projectap.helper.Constants.PPM;
 
 public class GameScreen extends ScreenAdapter {
 

@@ -1,4 +1,4 @@
-package helper;
+package com.mygdx.projectap.helper;
 
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
@@ -14,9 +14,9 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.Shape;
 import com.mygdx.projectap.GameScreen;
-import player.Player;
+import com.mygdx.projectap.player.Player;
 
-import static helper.Constants.PPM;
+import static com.mygdx.projectap.helper.Constants.PPM;
 
 public class TileMapHelper {
 

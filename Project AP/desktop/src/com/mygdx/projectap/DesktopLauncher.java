@@ -1,11 +1,7 @@
 package com.mygdx.projectap;
 
-import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import com.mygdx.projectap.ProjectAP;
-
-import java.awt.*;
 
 // Please note that on macOS your application needs to be started with the -XstartOnFirstThread JVM argument
 public class DesktopLauncher {
@@ -14,6 +10,6 @@ public class DesktopLauncher {
 		config.setForegroundFPS(60);
 		config.useVsync(true);
 		config.setWindowedMode(960,640);
-		new Lwjgl3Application(new Boot(), config);
+		new Lwjgl3Application(new ProjectAP(), config);
 	}
 }
