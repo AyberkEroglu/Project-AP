@@ -3,6 +3,7 @@ package com.mygdx.projectap;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -14,14 +15,17 @@ import java.awt.*;
 public class ProjectAP extends ApplicationAdapter {
 	private static final float SLOW_TIME_SCALE = 0.2f;
 	private static final float FAST_TIME_SCALE = 1f;
-	public float timeScale;
-	public float speed;
 
-	Point playerPos;
+
+	float speed;
+	float timeScale;
+	//Point playerPos;
 	SpriteBatch batch;
 	Texture headLeft;
-	Texture headright;
+	Texture headRight;
 	Sprite spr;
+	OrthographicCamera camera;
+
 
 
 
@@ -31,9 +35,10 @@ public class ProjectAP extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		timeScale = 1;
 		headLeft = new Texture("voxelPack/voxel-pack/PNG/Characters/Player male/male_head.png");
-		headright = new Texture("voxelPack/voxel-pack/PNG/Characters/Player male/male_head_r.png");
+		headRight = new Texture("voxelPack/voxel-pack/PNG/Characters/Player male/male_head_r.png");
 		spr = new Sprite(headLeft);
 		spr.setPosition(5,5);
+		camera = new OrthographicCamera();
 	}
 
 	@Override
@@ -43,7 +48,7 @@ public class ProjectAP extends ApplicationAdapter {
 		else timeScale = FAST_TIME_SCALE;
 		if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
 			spr.translate(timeScale * speed*Gdx.graphics.getDeltaTime(),0);
-			spr.setTexture(headright);
+			spr.setTexture(headRight);
 		}
 		if (Gdx.input.isKeyPressed(Input.Keys.LEFT)){
 			spr.translate(-timeScale * speed*Gdx.graphics.getDeltaTime(),0);
@@ -64,6 +69,6 @@ public class ProjectAP extends ApplicationAdapter {
 	public void dispose () {
 		batch.dispose();
 		headLeft.dispose();
-		headright.dispose();
+		headRight.dispose();
 	}
 }
