@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.8" tiledversion="1.8.2" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="70" tileheight="70" infinite="0" nextlayerid="6" nextobjectid="15">
+ <tileset firstgid="1" source="PlatformTiles.tsx"/>
+ <layer id="3" name="Background" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AU4AIAAyAAAQ==
+  </data>
+ </layer>
+ <layer id="1" name="Desen Katmanı 1" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBjcwBqIbaDYC4ptkGhbKtqlBsXEAC8SzXaBYhDQwKMunEjzPBlQwwNXOMDCzhuIraCYWgDdPBMi9JggqQtjQPgDOU5tcPBxySGzJaFYCoglkLAUFjGYOLIeSTQMAIWBDsw=
+  </data>
+ </layer>
+ <layer id="4" name="Desen Katmanı 3" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgZwIJK5lgDsQ0U21LJTGoAxRFmHr0AALDqAYw=
+  </data>
+ </layer>
+ <objectgroup id="5" name="objects">
+  <object id="7" x="0" y="140">
+   <polygon points="0,0 630,0 630,70 0,70"/>
+  </object>
+  <object id="8" x="1120" y="210">
+   <polygon points="0,0 280,0 280,70 0,70"/>
+  </object>
+  <object id="9" x="700" y="350">
+   <polygon points="0,0 350,0 350,70 0,70"/>
+  </object>
+  <object id="10" x="210" y="560">
+   <polygon points="0,0 0,140 1190,140 1190,0"/>
+  </object>
+  <object id="12" x="210" y="420" visible="0">
+   <polygon points="0,0 140,0 140,140 0,140"/>
+  </object>
+  <object id="13" x="0" y="420">
+   <polygon points="0,0 210,0 210,70 0,70"/>
+  </object>
+  <object id="14" x="0" y="560">
+   <polygon points="0,0 210,0 210,70 0,70"/>
+  </object>
+ </objectgroup>
+</map>
