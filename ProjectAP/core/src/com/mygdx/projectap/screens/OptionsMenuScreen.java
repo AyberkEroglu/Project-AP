@@ -1,4 +1,4 @@
-package screens;
+package com.mygdx.projectap.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -6,30 +6,43 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.projectap.ProjectAP;
 
-public class MainGameScreen implements Screen {
-    Texture img;
-    float x;
-    float y;
+public class OptionsMenuScreen implements Screen {
 
     ProjectAP game;
 
-    public MainGameScreen (ProjectAP game) {
-        this.game = game;
-    }
+    Texture optionsMenu;
+    Texture backMenuButton;
 
+    public OptionsMenuScreen(ProjectAP game) {
+        this.game = game;
+
+        optionsMenu = new Texture("Options Menu.drawio.png");
+        backMenuButton = new Texture("Back Menu Button.drawio.png");
+
+
+    }
     @Override
     public void show() {
-        img = new Texture("badlogic.jpg");
+
     }
 
     @Override
     public void render(float delta) {
+
         Gdx.gl.glClearColor(1,0,0,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         game.batch.begin();
 
-        game.batch.draw(img, x, y);
+        game.batch.draw(optionsMenu, 0, 0, 1600, 900);
+
+        game.batch.draw(backMenuButton, 30, ProjectAP.HEIGHT - 100, 150, 70);
+        if (Gdx.input.getY() >= 30 && Gdx.input.getY() <= 100 && Gdx.input.getX() >= 30 && Gdx.input.getX() <= 180) {
+            if (Gdx.input.justTouched()) {
+                this.dispose();
+                game.setScreen(new MainMenuScreen(game));
+            }
+        }
 
         game.batch.end();
     }
