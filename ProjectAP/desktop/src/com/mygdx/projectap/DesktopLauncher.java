@@ -10,6 +10,7 @@ public class DesktopLauncher {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setForegroundFPS(60);
 		config.setWindowedMode(ProjectAP.WIDTH,ProjectAP.HEIGHT);
+		config.setResizable(false);
 		new Lwjgl3Application(new ProjectAP(), config);
 	}
 }
