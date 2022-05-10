@@ -1,15 +1,20 @@
 package com.mygdx.projectap.bodies.entities;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.projectap.bodies.helper.BodyHelperService;
 import com.mygdx.projectap.bodies.helper.Constants;
 
+import static com.mygdx.projectap.bodies.helper.Constants.PPM;
+
 public class Enemy extends GameEntity {
     private Player player;
 
     private Body sensorBody;
+    private Sprite sprite;
 
     private World world;
 
@@ -20,7 +25,8 @@ public class Enemy extends GameEntity {
         super(width, height, body);
 
         this.world = world;
-
+        sprite = new Sprite(new Texture("entity assets/zombie.png"));
+        sprite.setSize(90,60);
         sensorBody = BodyHelperService.createBody(x, y, width * 10, width * 10, false, world, true, new Object[]{this, "EnemySensor"});
     }
 
@@ -43,12 +49,15 @@ public class Enemy extends GameEntity {
             }
         }
 
+        sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
+
+
         elapsed += delta;
     }
 
     @Override
     public void render(SpriteBatch batch) {
-
+        sprite.draw(batch);
     }
 
     public void setPlayer(Player player) {

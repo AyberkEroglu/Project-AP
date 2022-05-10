@@ -29,6 +29,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
     private OrthogonalTiledMapRenderer orthogonalTiledMapRenderer;
     private TileMapHelper tileMapHelper;
     private Player player;
+    private Enemy enemy;
     private ProjectAP game;
 
     public ArrayList<Enemy> enemies;
@@ -90,6 +91,9 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
         batch.begin();
 
         player.render(batch);
+        for (Enemy enemy : enemies) {
+            enemy.render(batch);
+        }
 
         batch.end();
         box2DDebugRenderer.render(world, camera.combined.scl(PPM));
