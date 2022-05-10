@@ -16,11 +16,12 @@ public class OptionsMenuScreen implements Screen {
     public OptionsMenuScreen(ProjectAP game) {
         this.game = game;
 
-        optionsMenu = new Texture("Options Menu.drawio.png");
-        backMenuButton = new Texture("Back Menu Button.drawio.png");
+        optionsMenu = new Texture("menu assets/Options Menu.drawio.png");
+        backMenuButton = new Texture("menu assets/Back Menu Button.drawio.png");
 
 
     }
+
     @Override
     public void show() {
 
@@ -29,7 +30,7 @@ public class OptionsMenuScreen implements Screen {
     @Override
     public void render(float delta) {
 
-        Gdx.gl.glClearColor(1,0,0,1);
+        Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         game.batch.begin();

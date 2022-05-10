@@ -20,12 +20,12 @@ public class PlayMenuScreen implements Screen {
     public PlayMenuScreen(ProjectAP game) {
         this.game = game;
 
-        playMenu = new Texture("Background.drawio.png");
-        tutorialButton = new Texture("Tutorial Button.drawio.png");
-        levelsButton = new Texture("Levels Menu Button.drawio.png");
-        timeRaceButton = new Texture("Time Race Button.drawio.png");
-        infinityModeButton = new Texture("Infinity Mode Button.drawio.png");
-        backMenuButton = new Texture("Back Menu Button.drawio.png");
+        playMenu = new Texture("menu assets/Background.drawio.png");
+        tutorialButton = new Texture("menu assets/Tutorial Button.drawio.png");
+        levelsButton = new Texture("menu assets/Levels Menu Button.drawio.png");
+        timeRaceButton = new Texture("menu assets/Time Race Button.drawio.png");
+        infinityModeButton = new Texture("menu assets/Infinity Mode Button.drawio.png");
+        backMenuButton = new Texture("menu assets/Back Menu Button.drawio.png");
 
     }
 
@@ -37,7 +37,7 @@ public class PlayMenuScreen implements Screen {
     @Override
     public void render(float delta) {
 
-        Gdx.gl.glClearColor(1,0,0,1);
+        Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         game.batch.begin();
@@ -52,7 +52,7 @@ public class PlayMenuScreen implements Screen {
             }
         }
 
-        game.batch.draw(tutorialButton, ProjectAP.WIDTH / 2 - tutorialButton.getWidth() / 2,  740, 390, 100);
+        game.batch.draw(tutorialButton, ProjectAP.WIDTH / 2 - tutorialButton.getWidth() / 2, 740, 390, 100);
         if (Gdx.input.getY() >= ProjectAP.HEIGHT - 840 && Gdx.input.getY() <= ProjectAP.HEIGHT - 740 && Gdx.input.getX() >= ProjectAP.WIDTH / 2 - tutorialButton.getWidth() / 2 && Gdx.input.getX() <= ProjectAP.WIDTH / 2 - tutorialButton.getWidth() / 2 + 390) {
             if (Gdx.input.justTouched()) {
                 this.dispose();

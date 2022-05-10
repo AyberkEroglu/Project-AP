@@ -18,12 +18,13 @@ public class MainMenuScreen implements Screen {
     public MainMenuScreen(ProjectAP game) {
         this.game = game;
 
-        mainMenu = new Texture("Main Menu.drawio.png");
-        playButton = new Texture("Main Menu Play Button.drawio.png");
-        optionsButton = new Texture("Main Menu Options Button.drawio.png");
-        exitButton = new Texture("Main Menu Exit Button.drawio.png");
+        mainMenu = new Texture("menu assets/Main Menu.drawio.png");
+        playButton = new Texture("menu assets/Main Menu Play Button.drawio.png");
+        optionsButton = new Texture("menu assets/Main Menu Options Button.drawio.png");
+        exitButton = new Texture("menu assets/Main Menu Exit Button.drawio.png");
 
     }
+
     @Override
     public void show() {
 
@@ -32,7 +33,7 @@ public class MainMenuScreen implements Screen {
     @Override
     public void render(float delta) {
 
-        Gdx.gl.glClearColor(1,0,0,1);
+        Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         game.batch.begin();

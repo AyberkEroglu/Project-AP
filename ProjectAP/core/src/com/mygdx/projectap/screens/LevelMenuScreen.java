@@ -5,7 +5,6 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.mygdx.projectap.GameScreen;
 import com.mygdx.projectap.ProjectAP;
 
 public class LevelMenuScreen implements Screen {
@@ -27,17 +26,17 @@ public class LevelMenuScreen implements Screen {
     public LevelMenuScreen(ProjectAP game) {
         this.game = game;
 
-        levelMenu = new Texture("Level Menu.drawio.png");
-        backButton = new Texture("Back Button.drawio.png");
-        levelPlayButton1 = new Texture("Level Menu Play Button.drawio.png");
-        levelPlayButton2 = new Texture("Level Menu Play Button.drawio.png");
-        levelPlayButton3 = new Texture("Level Menu Play Button.drawio.png");
-        levelPlayButton4 = new Texture("Level Menu Play Button.drawio.png");
-        levelPlayButton6 = new Texture("Level Menu Play Button.drawio.png");
-        levelPlayButton5 = new Texture("Level Menu Play Button.drawio.png");
-        levelPlayButton7 = new Texture("Level Menu Play Button.drawio.png");
-        levelPlayButton8 = new Texture("Level Menu Play Button.drawio.png");
-        levelPlayButton9 = new Texture("Level Menu Play Button.drawio.png");
+        levelMenu = new Texture("menu assets/Level Menu.drawio.png");
+        backButton = new Texture("menu assets/Back Button.drawio.png");
+        levelPlayButton1 = new Texture("menu assets/Level Menu Play Button.drawio.png");
+        levelPlayButton2 = new Texture("menu assets/Level Menu Play Button.drawio.png");
+        levelPlayButton3 = new Texture("menu assets/Level Menu Play Button.drawio.png");
+        levelPlayButton4 = new Texture("menu assets/Level Menu Play Button.drawio.png");
+        levelPlayButton6 = new Texture("menu assets/Level Menu Play Button.drawio.png");
+        levelPlayButton5 = new Texture("menu assets/Level Menu Play Button.drawio.png");
+        levelPlayButton7 = new Texture("menu assets/Level Menu Play Button.drawio.png");
+        levelPlayButton8 = new Texture("menu assets/Level Menu Play Button.drawio.png");
+        levelPlayButton9 = new Texture("menu assets/Level Menu Play Button.drawio.png");
 
     }
 
@@ -49,7 +48,7 @@ public class LevelMenuScreen implements Screen {
     @Override
     public void render(float delta) {
 
-        Gdx.gl.glClearColor(1,0,0,1);
+        Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         game.batch.begin();
@@ -79,7 +78,7 @@ public class LevelMenuScreen implements Screen {
             }
         }
         game.batch.draw(levelPlayButton3, 1160, ProjectAP.HEIGHT - 165, 60, 80);
-        if (Gdx.input.getY() >= 85 && Gdx.input.getY() <= 165  && Gdx.input.getX() >= 1160 && Gdx.input.getX() <= 1220) {
+        if (Gdx.input.getY() >= 85 && Gdx.input.getY() <= 165 && Gdx.input.getX() >= 1160 && Gdx.input.getX() <= 1220) {
             if (Gdx.input.justTouched()) {
                 this.dispose();
                 game.setScreen(new MainGameScreen(game));
@@ -100,7 +99,7 @@ public class LevelMenuScreen implements Screen {
             }
         }
         game.batch.draw(levelPlayButton6, 1160, ProjectAP.HEIGHT - 445, 60, 80);
-        if (Gdx.input.getY() >= 365 && Gdx.input.getY() <= 445  && Gdx.input.getX() >= 1160 && Gdx.input.getX() <= 1220) {
+        if (Gdx.input.getY() >= 365 && Gdx.input.getY() <= 445 && Gdx.input.getX() >= 1160 && Gdx.input.getX() <= 1220) {
             if (Gdx.input.justTouched()) {
                 this.dispose();
                 game.setScreen(new MainGameScreen(game));

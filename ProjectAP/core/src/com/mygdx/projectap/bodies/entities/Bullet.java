@@ -14,18 +14,19 @@ public class Bullet {
     Body body;
 
     public boolean fromEnemy;
-    public Bullet(float x, float y, World world,float angle, boolean fromEnemy) {
+
+    public Bullet(float x, float y, World world, float angle, boolean fromEnemy) {
         float speed = 20;
-        body = BodyHelperService.createBody(x,y,10,1,false,world,true,new Object[]{this,"Bullet"});
+        body = BodyHelperService.createBody(x, y, 10, 1, false, world, true, new Object[]{this, "Bullet"});
         body.setLinearVelocity((float) (-1 * Math.cos(angle) * speed), (float) (-1 * Math.sin(angle) * speed));
-        if(bullets == null) {
+        if (bullets == null) {
             bullets = new ArrayList<>();
         }
         this.fromEnemy = fromEnemy;
     }
-    public void update(float deltaTime) {
 
-        if(kill) {
+    public void update(float deltaTime) {
+        if (kill) {
             body.getWorld().destroyBody(body);
             bullets.remove(this);
         }

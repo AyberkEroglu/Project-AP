@@ -7,7 +7,7 @@ import com.mygdx.projectap.bodies.helper.BodyHelperService;
 import com.mygdx.projectap.bodies.helper.Constants;
 import com.mygdx.projectap.bodies.player.Player;
 
-public class Enemy extends Entity{
+public class Enemy extends Entity {
     private Player player;
 
     private Body sensorBody;
@@ -22,17 +22,17 @@ public class Enemy extends Entity{
 
         this.world = world;
 
-        setBody(BodyHelperService.createBody(x,y,width,height,false,world,new Object[]{this,"Enemy"}));
-        sensorBody = BodyHelperService.createBody(x,y,width * 10, width * 10,false,world,true,new Object[]{this,"EnemySensor"});
+        setBody(BodyHelperService.createBody(x, y, width, height, false, world, new Object[]{this, "Enemy"}));
+        sensorBody = BodyHelperService.createBody(x, y, width * 10, width * 10, false, world, true, new Object[]{this, "EnemySensor"});
     }
 
     public void update(float delta) {
-        sensorBody.setTransform(getBody().getPosition().x,getBody().getPosition().y,getBody().getAngle());
+        sensorBody.setTransform(getBody().getPosition().x, getBody().getPosition().y, getBody().getAngle());
 
-        if(attack){
-            if(elapsed > 1f / bulletPerSecond) {
+        if (attack) {
+            if (elapsed > 1f / bulletPerSecond) {
 
-                float angle = (float) Math.atan2(getBody().getPosition().y - player.getBody().getPosition().y,getBody().getPosition().x - player.getBody().getPosition().x);
+                float angle = (float) Math.atan2(getBody().getPosition().y - player.getBody().getPosition().y, getBody().getPosition().x - player.getBody().getPosition().x);
 
                 Bullet b = new Bullet(getBody().getPosition().x * Constants.PPM, getBody().getPosition().y * Constants.PPM, world, angle, true);
                 Bullet.bullets.add(b);
@@ -48,6 +48,7 @@ public class Enemy extends Entity{
     }
 
     private boolean attack;
+
     public void girdi() {
         attack = true;
         System.out.println("Girdi");

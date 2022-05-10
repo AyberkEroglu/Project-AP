@@ -9,7 +9,7 @@ public class Levels implements Screen {
     TiledMap levelMap;
 
 
-    public  Levels(int level){
+    public Levels(int level) {
         this.levelNo = level;
         this.levelMap = new TmxMapLoader().load("maps/map" + levelNo + "/map" + levelNo + ".tmx");
     }

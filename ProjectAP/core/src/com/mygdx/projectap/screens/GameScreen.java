@@ -1,4 +1,4 @@
-package com.mygdx.projectap;
+package com.mygdx.projectap.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
+import com.mygdx.projectap.ProjectAP;
 import com.mygdx.projectap.bodies.entities.Enemy;
 import com.mygdx.projectap.bodies.helper.TileMapHelper;
 import com.mygdx.projectap.bodies.player.Player;
@@ -38,10 +39,10 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
 
     public ArrayList<Enemy> enemies;
 
-    public GameScreen (OrthographicCamera camera, ProjectAP game, int levelNum) {
+    public GameScreen(OrthographicCamera camera, ProjectAP game, int levelNum) {
         this.camera = camera;
         this.batch = new SpriteBatch();
-        this.world = new World(new Vector2(0,-9.81f), false);
+        this.world = new World(new Vector2(0, -9.81f), false);
         this.box2DDebugRenderer = new Box2DDebugRenderer();
 
         this.tileMapHelper = new TileMapHelper(this, levelNum);
@@ -53,8 +54,9 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
 
 
     }
+
     private void update() {
-        world.step(1/60f, 6, 2);
+        world.step(1 / 60f, 6, 2);
         cameraUpdate();
 
         batch.setProjectionMatrix(camera.combined);
@@ -65,11 +67,11 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
         }
 
         player.update();
-        for (Enemy enemy :enemies) {
+        for (Enemy enemy : enemies) {
             enemy.update(Gdx.graphics.getDeltaTime());
 
         }
-        if(Bullet.bullets != null) {
+        if (Bullet.bullets != null) {
             for (int i = 0; i < Bullet.bullets.size(); i++) {
                 Bullet.bullets.get(i).update(Gdx.graphics.getDeltaTime());
             }
@@ -89,17 +91,17 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
     public void render(float delta) {
         this.update();
 
-        Gdx.gl.glClearColor(0,0,0,1);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         orthogonalTiledMapRenderer.render();
 
         batch.begin();
 
-
+        player.render(batch);
 
         batch.end();
-        box2DDebugRenderer.render(world,camera.combined.scl(PPM));
+        box2DDebugRenderer.render(world, camera.combined.scl(PPM));
     }
 
     public World getWorld() {
@@ -112,34 +114,33 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
 
     @Override
     public void beginContact(Contact contact) {
-            Object[] objectsA = (Object[]) contact.getFixtureA().getUserData();
-            Object[] objectsB = (Object[]) contact.getFixtureB().getUserData();
+        Object[] objectsA = (Object[]) contact.getFixtureA().getUserData();
+        Object[] objectsB = (Object[]) contact.getFixtureB().getUserData();
 
-        if(objectsA != null && objectsB != null) {
+        if (objectsA != null && objectsB != null) {
 
             if (isConnact("Player", "EnemySensor", objectsA[1], objectsB[1])) {
                 if (objectsA[1].equals("Player")) {
-                    ((Enemy)objectsB[0]).girdi();
-                }else  {
-                    ((Enemy)objectsA[0]).girdi();
+                    ((Enemy) objectsB[0]).girdi();
+                } else {
+                    ((Enemy) objectsA[0]).girdi();
 
                 }
-            }
-            else if(objectsB[1].equals("Bullet") || objectsA[1].equals("Bullet")) {
+            } else if (objectsB[1].equals("Bullet") || objectsA[1].equals("Bullet")) {
                 Bullet bullet;
-                if(objectsB[1].equals("Bullet")) {
+                if (objectsB[1].equals("Bullet")) {
                     bullet = (Bullet) objectsB[0];
-                }else {
+                } else {
                     bullet = (Bullet) objectsA[0];
                 }
 
-                if(isConnact("Enemy","Bullet",objectsA[1],objectsB[1]) && bullet.fromEnemy){
+                if (isConnact("Enemy", "Bullet", objectsA[1], objectsB[1]) && bullet.fromEnemy) {
 
-                }else if(isConnact("EnemySensor","Bullet",objectsA[1],objectsB[1])){
+                } else if (isConnact("EnemySensor", "Bullet", objectsA[1], objectsB[1])) {
 
-                }else if(isConnact("Player","Bullet",objectsA[1],objectsB[1]) && !bullet.fromEnemy) {
+                } else if (isConnact("Player", "Bullet", objectsA[1], objectsB[1]) && !bullet.fromEnemy) {
 
-                }else {
+                } else {
                     bullet.kill = true;
 
                 }
@@ -153,14 +154,14 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
         Object[] objectsA = (Object[]) contact.getFixtureA().getUserData();
         Object[] objectsB = (Object[]) contact.getFixtureB().getUserData();
 
-        if(objectsA != null && objectsB != null) {
+        if (objectsA != null && objectsB != null) {
 
 
             if (isConnact("Player", "EnemySensor", objectsA[1], objectsB[1])) {
                 if (objectsA[1].equals("Player")) {
-                    ((Enemy)objectsB[0]).cikti();
-                }else  {
-                    ((Enemy)objectsA[0]).cikti();
+                    ((Enemy) objectsB[0]).cikti();
+                } else {
+                    ((Enemy) objectsA[0]).cikti();
 
                 }
             }
@@ -177,10 +178,10 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
 
     }
 
-    private boolean isConnact(String id1, String id2, Object a,Object b){
-        if(a == null || b == null) return  false;
-        return  ((a.equals(id1) && b.equals(id2)) ||
-                (a.equals(id2) && b.equals(id1)) );
+    private boolean isConnact(String id1, String id2, Object a, Object b) {
+        if (a == null || b == null) return false;
+        return ((a.equals(id1) && b.equals(id2)) ||
+                (a.equals(id2) && b.equals(id1)));
     }
 
     public Player getPlayer() {

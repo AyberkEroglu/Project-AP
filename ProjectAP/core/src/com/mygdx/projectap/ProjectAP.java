@@ -6,23 +6,23 @@ import com.mygdx.projectap.screens.MainMenuScreen;
 
 public class ProjectAP extends Game {
 
-	public static int WIDTH = 1600;
-	public static int HEIGHT = 900;
-	public SpriteBatch batch;
-	
-	@Override
-	public void create () {
-		batch = new SpriteBatch();
-		this.setScreen(new MainMenuScreen(this));
-	}
+    public static int WIDTH = 1600;
+    public static int HEIGHT = 900;
+    public SpriteBatch batch;
 
-	@Override
-	public void render () {
-		super.render();
-	}
-	
-	@Override
-	public void dispose () {
-		batch.dispose();
-	}
+    @Override
+    public void create() {
+        batch = new SpriteBatch();
+        this.setScreen(new MainMenuScreen(this));
+    }
+
+    @Override
+    public void render() {
+        super.render();
+    }
+
+    @Override
+    public void dispose() {
+        batch.dispose();
+    }
 }
