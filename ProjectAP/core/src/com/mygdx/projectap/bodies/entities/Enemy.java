@@ -1,13 +1,12 @@
 package com.mygdx.projectap.bodies.entities;
 
-import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.projectap.bodies.helper.BodyHelperService;
 import com.mygdx.projectap.bodies.helper.Constants;
-import com.mygdx.projectap.bodies.player.Player;
 
-public class Enemy extends Entity {
+public class Enemy extends GameEntity {
     private Player player;
 
     private Body sensorBody;
@@ -17,13 +16,17 @@ public class Enemy extends Entity {
     float elapsed = 0;
     int bulletPerSecond = 1;
 
-    public Enemy(float width, float height, float x, float y, float density, Vector2 velocity, World world) {
-        super(width, height, x, y, density, velocity);
+    public Enemy(float width, float height, World world, Body body) {
+        super(width, height, body);
 
         this.world = world;
 
-        setBody(BodyHelperService.createBody(x, y, width, height, false, world, new Object[]{this, "Enemy"}));
         sensorBody = BodyHelperService.createBody(x, y, width * 10, width * 10, false, world, true, new Object[]{this, "EnemySensor"});
+    }
+
+    @Override
+    public void update() {
+
     }
 
     public void update(float delta) {
@@ -41,6 +44,11 @@ public class Enemy extends Entity {
         }
 
         elapsed += delta;
+    }
+
+    @Override
+    public void render(SpriteBatch batch) {
+
     }
 
     public void setPlayer(Player player) {

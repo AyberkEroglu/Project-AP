@@ -12,7 +12,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.mygdx.projectap.screens.GameScreen;
 import com.mygdx.projectap.bodies.entities.Enemy;
-import com.mygdx.projectap.bodies.player.Player;
+import com.mygdx.projectap.bodies.entities.Player;
 
 import java.util.ArrayList;
 
@@ -55,7 +55,8 @@ public class TileMapHelper {
                 }
 
                 if (rectangleName.equals("enemy")) {
-                    Enemy enemy = new Enemy(30, 60, rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2, 1, new Vector2(0, 0), gameScreen.getWorld());
+                    Body body = BodyHelperService.createBody(rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2, 30, 60, false, gameScreen.getWorld(), new Object[]{this, "Enemy"});
+                    Enemy enemy = new Enemy(30, 60, gameScreen.getWorld(), body);
                     enemy.setPlayer(gameScreen.getPlayer());
 
                     gameScreen.enemies.add(enemy);

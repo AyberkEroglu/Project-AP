@@ -10,17 +10,11 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.*;
-import com.badlogic.gdx.utils.Array;
 import com.mygdx.projectap.ProjectAP;
 import com.mygdx.projectap.bodies.entities.Enemy;
 import com.mygdx.projectap.bodies.helper.TileMapHelper;
-import com.mygdx.projectap.bodies.player.Player;
+import com.mygdx.projectap.bodies.entities.Player;
 import com.mygdx.projectap.bodies.entities.Bullet;
-import com.mygdx.projectap.bodies.entities.Enemy;
-import com.mygdx.projectap.bodies.helper.TileMapHelper;
-import com.mygdx.projectap.bodies.player.Player;
-import com.mygdx.projectap.screens.MainGameScreen;
-import com.mygdx.projectap.screens.MainMenuScreen;
 
 import java.util.ArrayList;
 

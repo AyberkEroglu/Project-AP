@@ -1,4 +1,4 @@
-package com.mygdx.projectap.bodies.player;
+package com.mygdx.projectap.bodies.entities;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -8,12 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.World;
-import com.mygdx.projectap.bodies.entities.Bullet;
 import com.mygdx.projectap.bodies.helper.Constants;
-import com.mygdx.projectap.bodies.entities.Bullet;
-import com.mygdx.projectap.bodies.helper.Constants;
-import jdk.internal.net.http.common.Log;
 
 import static com.mygdx.projectap.bodies.helper.Constants.PPM;
 
@@ -67,6 +62,11 @@ public class Player extends GameEntity {
         if (!isRightSide) {
             sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 - 26, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
         }
+    }
+
+    @Override
+    public void update(float delta) {
+
     }
 
     @Override
