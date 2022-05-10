@@ -18,10 +18,10 @@ public class MainMenuScreen implements Screen {
     public MainMenuScreen(ProjectAP game) {
         this.game = game;
 
-        mainMenu = new Texture("menu assets/Main Menu.drawio.png");
-        playButton = new Texture("menu assets/Main Menu Play Button.drawio.png");
-        optionsButton = new Texture("menu assets/Main Menu Options Button.drawio.png");
-        exitButton = new Texture("menu assets/Main Menu Exit Button.drawio.png");
+        mainMenu = new Texture("menu assets/Main Menu/Main Menu.drawio.png");
+        playButton = new Texture("menu assets/Main Menu/Play Button.drawio.png");
+        optionsButton = new Texture("menu assets/Main Menu/Options Button.drawio.png");
+        exitButton = new Texture("menu assets/Main Menu/Exit Button.drawio.png");
 
     }
 
