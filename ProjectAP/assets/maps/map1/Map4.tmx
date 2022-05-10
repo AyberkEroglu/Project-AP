@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="36" height="20" tilewidth="70" tileheight="70" infinite="0" nextlayerid="5" nextobjectid="4">
+ <tileset firstgid="1" source="Background.tsx"/>
+ <tileset firstgid="793" source="PlatformTiles.tsx"/>
+ <layer id="1" name="Desen Katmanı 1" width="36" height="20">
+  <data encoding="base64" compression="zlib">
+   eJwV1YOyGAYAAMEX27Zt27Zt27Zt27Zt20Yb20abpNuZ22+4QAEBAYEJQlCCEZwQhCQUoQlDWMIRnghEJBKRiUJUohGdGMQkFrGJQ1ziEZ8EJCQRiUlCUpKRnBSkJBWpSUNa0pGeDGQkE5nJQlaykZ0c5CQXuclDXvKRnwIUpBCFKUJRilGcEpSkFKUpQ1nKUZ4KVKQSlalCVapRnRrUpBa1qUNd6lGfBjSkEY1pQlOa0ZwWtKQVrWlDW9rRng50pBOd6UJXutGdHvSkF73pQ1/60Z8BDGQQgxnCUIYxnBGMZBSjGcNYxjGeCUxkEpOZwlSmMZ0ZzGQWs5nDXOYxnwUsZBGLWcJSlrGcFaxkFatZw1rWsZ4NbGQTm9nCVraxnR3sZBe72cNe9rGfAxzkEIc5wlGOcZwTnOQUpznDWc5xngtc5BKXucJVrnGdG9zkFre5w13+4m/ucZ8HPOQRj3nCU57xnBe85BWvecNb3vGeD3zkE5/5wle+8Z0f/OQf/uUXv/lDQCARmCAEJRjBCUFIQhGaMIQlHOGJQEQiEZkoRCUa0YlBTGIRmzjEJR7xSUBCEpGYJCQlGclJQUpSkZo0pCUd6clARjKRmSxkJRvZyUFOcpGbPOQlH/kpQEEKUZgiFKUYxSlBSUpRmjKUpRzlqUBFKlGZKlSlGtWpQU1qUZs61KUe9WlAQxrRmCY0pRnNaUFLWtGaNrSlHe3pQEc60ZkudKUb3elBT3rRmz70pR/9GcBABjGYIQxlGMMZwUhGMZoxjGUc45nARCYxmSlMZRrTmcFMZjGbOcxlHvNZwEIWsZglLGUZy1nBSlaxmjWsZR3r2cBGNrGZLWxlG9vZwU52sZs97GUf+znAQQ5xmCMc5RjHOcFJTnGaM5zlHOe5wEUucZkrXOUa17nBTW5xmzvc5S/+5h73ecBDHvGYJzzlGc95wUte8Zo3vOUd7/nARz7xmS985Rvf+cFP/uFffvGbP/w//kAEJghBCUZwQhCSUIQmDGEJR3giEJFIRCYKUYlGdGIQk1jEJg5xiUd8EpCQRCQmCUlJRnJSkJJUpCYNaUlHejKQkUxkJgtZyUZ2cpCTXOQmD3nJR34KUJBCFKYIRSlGcUpQklKUpgxlKUd5KlCRSlSmClWpRnVqUJNa1KYOdalHfRrQkEY0pglNaUZzWtCSVrSmDW1pR3s60JFOdKYLXelGd3rQk170pg996Ud/BjCQQQxmCEMZxnBGMJJRjGYMYxnHeCYwkUlMZgpTmcZ0ZjCTWcxmDnOZx3wWsJBFLGYJS1nGclawklWsZg1rWcd6NrCRTWxmC1vZxnZ2sJNd7GYPe9nHfg5wkEMc5ghHOcZxTnCSU5zmDGc5x3kucJH/AFK9Vpo=
+  </data>
+ </layer>
+ <objectgroup id="4" name="Enemy">
+  <object id="3" x="1400" y="210"/>
+ </objectgroup>
+ <layer id="2" name="Platform" width="36" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4ByIM/MwBCChkOZsasNxqKWGH2kuEWXQjOoBYJJ8JPLIHEzCIDcQqp70OOVlHgklCaomT5gIGgQhfdIB6TEP7npgJS8OFgBLdIsLjOxhReuMByseWmwugsXoHcZCAPY8t9Qzif0AgD82Bwb
+  </data>
+ </layer>
+ <layer id="3" name="Desen Katmanı 3" width="36" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFQxnEMg+0C7ADy0HmruHsHnLSgA8zAlPbPbQERswQPAqoC0BpiFA68hkk4T7Y0qr7qHvwgqHqHuTykZZgsIXPKCAeAABouwZj
+  </data>
+ </layer>
+</map>

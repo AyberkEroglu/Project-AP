@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.8" tiledversion="1.8.2" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="70" tileheight="70" infinite="0" nextlayerid="3" nextobjectid="2">
+ <tileset firstgid="1" source="PlatformTiles.tsx"/>
+ <layer id="1" name="Tile Layer 1" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4B4YA3ENlTAtvR2OJkAAI91BHU=
+  </data>
+ </layer>
+ <objectgroup id="2" name="objects">
+  <object id="1" x="0" y="490">
+   <polygon points="0,0 0,70 1330,70 1330,0 0,0"/>
+  </object>
+ </objectgroup>
+</map>

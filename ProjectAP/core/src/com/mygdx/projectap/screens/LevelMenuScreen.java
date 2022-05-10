@@ -3,7 +3,9 @@ package com.mygdx.projectap.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.mygdx.projectap.GameScreen;
 import com.mygdx.projectap.ProjectAP;
 
 public class LevelMenuScreen implements Screen {
@@ -64,7 +66,9 @@ public class LevelMenuScreen implements Screen {
         if (Gdx.input.getY() >= 85 && Gdx.input.getY() <= 165 && Gdx.input.getX() >= 380 && Gdx.input.getX() <= 440) {
             if (Gdx.input.justTouched()) {
                 this.dispose();
-                game.setScreen(new MainGameScreen(game));
+                OrthographicCamera orthographicCamera = new OrthographicCamera();
+                orthographicCamera.setToOrtho(false, ProjectAP.WIDTH, ProjectAP.HEIGHT);
+                game.setScreen(new GameScreen(orthographicCamera, game, 1));
             }
         }
         game.batch.draw(levelPlayButton2, 770, ProjectAP.HEIGHT - 165, 60, 80);
