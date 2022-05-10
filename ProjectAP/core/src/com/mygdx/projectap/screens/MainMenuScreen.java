@@ -62,7 +62,6 @@ public class MainMenuScreen implements Screen {
                 Gdx.app.exit();
             }
         }
-
         game.batch.end();
     }
 

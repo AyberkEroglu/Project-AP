@@ -59,7 +59,6 @@ public class Player extends GameEntity {
             Bullet b = new Bullet(getBody().getPosition().x * Constants.PPM, getBody().getPosition().y
                     * Constants.PPM, getBody().getWorld(), angle, false);
             Bullet.bullets.add(b);
-
         }
         // Player sprite position
         if (isRightSide) {
@@ -68,7 +67,6 @@ public class Player extends GameEntity {
         if (!isRightSide) {
             sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 - 26, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
         }
-
     }
 
     @Override

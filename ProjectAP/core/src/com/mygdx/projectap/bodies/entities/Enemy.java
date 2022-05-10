@@ -49,17 +49,14 @@ public class Enemy extends Entity {
 
     private boolean attack;
 
-    public void girdi() {
+    public void enter() {
         attack = true;
         System.out.println("Girdi");
 
-        //a.ıyı bul
-
-        //60
     }
 
 
-    public void cikti() {
+    public void exit() {
         attack = false;
     }
 }

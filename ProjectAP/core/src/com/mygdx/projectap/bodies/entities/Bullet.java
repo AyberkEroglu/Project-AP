@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 public class Bullet {
 
-
     public static ArrayList<Bullet> bullets;
     public boolean kill;
     Body body;

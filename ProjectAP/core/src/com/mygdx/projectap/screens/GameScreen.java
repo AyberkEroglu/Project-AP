@@ -51,8 +51,6 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
         world.setContactListener(this);
 
         this.game = game;
-
-
     }
 
     private void update() {
@@ -76,7 +74,6 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
                 Bullet.bullets.get(i).update(Gdx.graphics.getDeltaTime());
             }
         }
-
     }
 
     private void cameraUpdate() {
@@ -121,10 +118,9 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
 
             if (isConnact("Player", "EnemySensor", objectsA[1], objectsB[1])) {
                 if (objectsA[1].equals("Player")) {
-                    ((Enemy) objectsB[0]).girdi();
+                    ((Enemy) objectsB[0]).enter();
                 } else {
-                    ((Enemy) objectsA[0]).girdi();
-
+                    ((Enemy) objectsA[0]).enter();
                 }
             } else if (objectsB[1].equals("Bullet") || objectsA[1].equals("Bullet")) {
                 Bullet bullet;
@@ -142,11 +138,9 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
 
                 } else {
                     bullet.kill = true;
-
                 }
             }
         }
-
     }
 
     @Override
@@ -156,13 +150,11 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
 
         if (objectsA != null && objectsB != null) {
 
-
             if (isConnact("Player", "EnemySensor", objectsA[1], objectsB[1])) {
                 if (objectsA[1].equals("Player")) {
-                    ((Enemy) objectsB[0]).cikti();
+                    ((Enemy) objectsB[0]).exit();
                 } else {
-                    ((Enemy) objectsA[0]).cikti();
-
+                    ((Enemy) objectsA[0]).exit();
                 }
             }
         }

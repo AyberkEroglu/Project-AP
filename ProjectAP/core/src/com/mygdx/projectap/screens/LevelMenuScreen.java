@@ -143,10 +143,7 @@ public class LevelMenuScreen implements Screen {
                 game.setScreen(new GameScreen(orthographicCamera, game, 9));
             }
         }
-
-
         game.batch.end();
-
     }
 
     @Override
