@@ -6,7 +6,10 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.projectap.bodies.helper.BodyHelperService;
 import com.mygdx.projectap.bodies.helper.Constants;
 
+
 public class Enemy extends GameEntity {
+    private int decider = 0;
+
     private Player player;
 
     private Body sensorBody;
@@ -42,6 +45,7 @@ public class Enemy extends GameEntity {
                 elapsed = 0;
             }
         }
+        move();
 
         elapsed += delta;
     }
@@ -66,5 +70,20 @@ public class Enemy extends GameEntity {
 
     public void exit() {
         attack = false;
+    }
+
+    public void move(){
+
+        if (decider < 10) {
+            this.getBody().setLinearVelocity(10, this.getBody().getLinearVelocity().y);
+            decider++;
+            System.out.println(decider);
+        }
+        else {
+            this.getBody().setLinearVelocity(-10, this.getBody().getLinearVelocity().y);
+            decider ++;
+            if (decider >= 20) decider = 0;
+            System.out.println(decider);
+        }
     }
 }

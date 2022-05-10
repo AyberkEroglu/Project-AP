@@ -46,6 +46,7 @@ public class Player extends GameEntity {
         if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
             getBody().applyLinearImpulse(new Vector2(0, 10), getBody().getLocalCenter(), true);
         }
+
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
             float angle = MathUtils.degreesToRadians * 180;
             if (!isRightSide) {
