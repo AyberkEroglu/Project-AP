@@ -22,13 +22,15 @@ public class TileMapHelper {
 
     private TiledMap tiledMap;
     private GameScreen gameScreen;
+    private int levelNum;
 
     public TileMapHelper(GameScreen gameScreen, int levelNum) {
         this.gameScreen = gameScreen;
+        this.levelNum = levelNum;
     }
 
     public OrthogonalTiledMapRenderer setupMap() {
-        tiledMap = new TmxMapLoader().load("maps/map2/map2.tmx");
+        tiledMap = new TmxMapLoader().load("maps/map" + levelNum + "/map" + levelNum +".tmx");
         parseMapObjects(tiledMap.getLayers().get("objects").getObjects());
         return new OrthogonalTiledMapRenderer(tiledMap);
     }

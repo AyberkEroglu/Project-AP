@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="70" tileheight="70" infinite="0" nextlayerid="10" nextobjectid="33">
+ <tileset firstgid="1" source="PlatformTiles.tsx"/>
+ <layer id="2" name="Platform" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYMAEVljEKAGUmGcNxDZo2JYObsJlrx2Z5mGTx6cHm/2EwoDa8YbuBmqEOyE7SPUzre0HAOwdDJw=
+  </data>
+ </layer>
+ <objectgroup id="5" name="objects">
+  <object id="16" name="player" x="70" y="70" width="70" height="70"/>
+  <object id="19" name="enemy" x="1260" y="350" width="70" height="70"/>
+  <object id="21" name="enemy" x="910" y="140" width="70" height="70"/>
+  <object id="22" name="enemy" x="490" y="490" width="70" height="70"/>
+  <object id="23" x="0" y="140">
+   <polygon points="0,0 280,0 280,70 0,70"/>
+  </object>
+  <object id="24" x="350" y="140">
+   <polygon points="0,0 0,70 70,70 70,-140 0,-140"/>
+  </object>
+  <object id="25" x="140" y="210">
+   <polygon points="0,0 0,140 70,140 70,0"/>
+  </object>
+  <object id="26" x="140" y="350">
+   <polygon points="0,0 0,70 630,70 630,0"/>
+  </object>
+  <object id="27" x="700" y="350">
+   <polygon points="0,0 0,-140 70,-140 70,0"/>
+  </object>
+  <object id="28" x="770" y="210">
+   <polygon points="0,0 350,0 350,70 0,70"/>
+  </object>
+  <object id="29" x="0" y="560">
+   <polygon points="0,0 840,0 840,70 0,70"/>
+  </object>
+  <object id="30" x="1050" y="280">
+   <polygon points="0,0 0,210 70,210 70,0"/>
+  </object>
+  <object id="31" x="1190" y="420">
+   <polygon points="0,0 210,0 210,70 0,70"/>
+  </object>
+  <object id="32" x="840" y="630">
+   <polygon points="0,0 560,0 560,70 0,70"/>
+  </object>
+ </objectgroup>
+ <layer id="3" name="Desen Katmanı 3" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBj8QAqJrU9ls4k1TwrNHcSYZ4JFXo1I++gJ8LkJ5h9JKA6n0C7k8EG3l9gwxmYetrCmBgAAxgEDAA==
+  </data>
+ </layer>
+</map>

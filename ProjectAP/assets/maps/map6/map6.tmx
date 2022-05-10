@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="70" tileheight="70" infinite="0" nextlayerid="5" nextobjectid="22">
+ <tileset firstgid="1" source="PlatformTiles.tsx"/>
+ <layer id="2" name="Desen Katmanı 1" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBh4YIZHjgmImdEwC1TOHopxqcOlj1YAnz9IBYIMCHcL0cheEyhmZyAcdjBMjJtFgZiVSBxOptsJuQEdEwpDXAAAO2QC6w==
+  </data>
+ </layer>
+ <layer id="3" name="Desen Katmanı 2" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAdcKWh2aQCRSqYoQbF1DIPGQx284YqkIJicgEASYIBSg==
+  </data>
+ </layer>
+ <objectgroup id="4" name="objects">
+  <object id="1" x="0" y="140">
+   <polygon points="0,0 420,0 420,70 0,70"/>
+  </object>
+  <object id="2" x="700" y="140">
+   <polygon points="0,0 0,70 560,70 560,0"/>
+  </object>
+  <object id="3" x="1330" y="140">
+   <polygon points="0,0 70,0 70,70 0,70"/>
+  </object>
+  <object id="4" x="700" y="420">
+   <polygon points="0,0 700,0 700,140 0,140"/>
+  </object>
+  <object id="5" x="490" y="490">
+   <polygon points="0,0 210,0 210,70 0,70"/>
+  </object>
+  <object id="6" x="0" y="630">
+   <polygon points="0,0 490,0 490,70 0,70"/>
+  </object>
+  <object id="7" x="140" y="350">
+   <polygon points="0,0 280,0 280,70 0,70"/>
+  </object>
+  <object id="8" x="633" y="489">
+   <polygon points="0,0 66,-68 68,2"/>
+  </object>
+  <object id="9" x="490.333" y="140">
+   <polygon points="0,0 139.333,0.333333 139.333,10 -0.333333,9.66667"/>
+  </object>
+  <object id="12" x="211.667" y="139">
+   <polygon points="0,0 -0.666667,-8.33333 8,-23.3333 23.6667,-33.3333 44.6667,-32.3333 59.3333,-24 67.6667,-8.33333 66.3333,0.333333"/>
+  </object>
+  <object id="15" name="player" x="70" y="70" width="70" height="70"/>
+  <object id="17" name="enemy" x="280" y="280" width="70" height="70"/>
+  <object id="19" name="enemy" x="840" y="350" width="70" height="70"/>
+  <object id="20" name="enemy" x="1120" y="70" width="70" height="70"/>
+  <object id="21" name="enemy" x="980" y="350" width="70" height="70"/>
+ </objectgroup>
+</map>

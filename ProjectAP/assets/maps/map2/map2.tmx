@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="70" tileheight="70" infinite="0" nextlayerid="6" nextobjectid="23">
  <tileset firstgid="1" source="PlatformTiles.tsx"/>
- <layer id="3" name="Background" width="20" height="10">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AU4AIAAyAAAQ==
-  </data>
- </layer>
  <layer id="1" name="Desen Katmanı 1" width="20" height="10">
   <data encoding="base64" compression="zlib">
    eJxjYBjcwBqIbaDYC4ptkGhbKtqlBsXEAC8SzXaBYhDQwKMunEjzPBlQwwNXOMDCzhuIraCYWgDdPBMi9JggqQtjQPgDOU5tcPBxySGzJaFYCoglkLAUFjGYOLIeSTQMAIWBDsw=
   </data>
  </layer>
- <layer id="4" name="Desen Katmanı 3" width="20" height="10">
+ <layer id="4" name="Desen Katmanı 2" width="20" height="10">
   <data encoding="base64" compression="zlib">
    eJxjYBgZwIJK5lgDsQ0U21LJTGoAxRFmHr0AALDqAYw=
   </data>

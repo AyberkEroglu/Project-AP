@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="36" height="20" tilewidth="70" tileheight="70" infinite="0" nextlayerid="6" nextobjectid="27">
+ <tileset firstgid="1" source="PlatformTiles.tsx"/>
+ <layer id="2" name="Platform" width="36" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4BywA7ENmjYFodaayxqidFHiltEKTSDWgDmV2L8pENjt5ACdBhIdw96vJISj4TSBDXTBwxYUcmcUUA5ICX+yU0HpOTFwQpokWZxmYktvHCF4WDNS4PVXbgAvctAGMCW/4ZyPqEXAAC4+hMk
+  </data>
+ </layer>
+ <layer id="3" name="Desen Katmanı 3" width="36" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFQxm4DrQDcADFgXYAGhjO7iEnDZggYRAYbOGDC0hB8SigLnBlIJyOTAjI0wsMtrSqP9AOQAOj7sEPiHUPcvlISzDYwmcUEA8AdfoEEQ==
+  </data>
+ </layer>
+ <objectgroup id="5" name="objects">
+  <object id="21" name="player" x="420" y="140" width="70" height="70"/>
+  <object id="22" name="enemy" x="1190" y="140" width="70" height="70"/>
+  <object id="25" x="910" y="280">
+   <polygon points="0,0 0,70 630,70 630,0"/>
+  </object>
+ </objectgroup>
+</map>

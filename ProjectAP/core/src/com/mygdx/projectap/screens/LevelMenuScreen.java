@@ -74,49 +74,63 @@ public class LevelMenuScreen implements Screen {
         if (Gdx.input.getY() >= 85 && Gdx.input.getY() <= 165 && Gdx.input.getX() >= 770 && Gdx.input.getX() <= 830) {
             if (Gdx.input.justTouched()) {
                 this.dispose();
-                game.setScreen(new MainGameScreen(game));
+                OrthographicCamera orthographicCamera = new OrthographicCamera();
+                orthographicCamera.setToOrtho(false, ProjectAP.WIDTH, ProjectAP.HEIGHT);
+                game.setScreen(new GameScreen(orthographicCamera, game, 2));
             }
         }
         game.batch.draw(levelPlayButton3, 1160, ProjectAP.HEIGHT - 165, 60, 80);
         if (Gdx.input.getY() >= 85 && Gdx.input.getY() <= 165 && Gdx.input.getX() >= 1160 && Gdx.input.getX() <= 1220) {
             if (Gdx.input.justTouched()) {
                 this.dispose();
-                game.setScreen(new MainGameScreen(game));
+                OrthographicCamera orthographicCamera = new OrthographicCamera();
+                orthographicCamera.setToOrtho(false, ProjectAP.WIDTH, ProjectAP.HEIGHT);
+                game.setScreen(new GameScreen(orthographicCamera, game, 3));
             }
         }
         game.batch.draw(levelPlayButton4, 380, ProjectAP.HEIGHT - 445, 60, 80);
         if (Gdx.input.getY() >= 365 && Gdx.input.getY() <= 445 && Gdx.input.getX() >= 380 && Gdx.input.getX() <= 440) {
             if (Gdx.input.justTouched()) {
                 this.dispose();
-                game.setScreen(new MainGameScreen(game));
+                OrthographicCamera orthographicCamera = new OrthographicCamera();
+                orthographicCamera.setToOrtho(false, ProjectAP.WIDTH, ProjectAP.HEIGHT);
+                game.setScreen(new GameScreen(orthographicCamera, game, 4));
             }
         }
         game.batch.draw(levelPlayButton5, 770, ProjectAP.HEIGHT - 445, 60, 80);
         if (Gdx.input.getY() >= 365 && Gdx.input.getY() <= 445 && Gdx.input.getX() >= 770 && Gdx.input.getX() <= 830) {
             if (Gdx.input.justTouched()) {
                 this.dispose();
-                game.setScreen(new MainGameScreen(game));
+                OrthographicCamera orthographicCamera = new OrthographicCamera();
+                orthographicCamera.setToOrtho(false, ProjectAP.WIDTH, ProjectAP.HEIGHT);
+                game.setScreen(new GameScreen(orthographicCamera, game, 5));
             }
         }
         game.batch.draw(levelPlayButton6, 1160, ProjectAP.HEIGHT - 445, 60, 80);
         if (Gdx.input.getY() >= 365 && Gdx.input.getY() <= 445 && Gdx.input.getX() >= 1160 && Gdx.input.getX() <= 1220) {
             if (Gdx.input.justTouched()) {
                 this.dispose();
-                game.setScreen(new MainGameScreen(game));
+                OrthographicCamera orthographicCamera = new OrthographicCamera();
+                orthographicCamera.setToOrtho(false, ProjectAP.WIDTH, ProjectAP.HEIGHT);
+                game.setScreen(new GameScreen(orthographicCamera, game, 6));
             }
         }
         game.batch.draw(levelPlayButton7, 380, ProjectAP.HEIGHT - 725, 60, 80);
         if (Gdx.input.getY() >= 645 && Gdx.input.getY() <= 725 && Gdx.input.getX() >= 380 && Gdx.input.getX() <= 440) {
             if (Gdx.input.justTouched()) {
                 this.dispose();
-                game.setScreen(new MainGameScreen(game));
+                OrthographicCamera orthographicCamera = new OrthographicCamera();
+                orthographicCamera.setToOrtho(false, ProjectAP.WIDTH, ProjectAP.HEIGHT);
+                game.setScreen(new GameScreen(orthographicCamera, game, 7));
             }
         }
         game.batch.draw(levelPlayButton8, 770, ProjectAP.HEIGHT - 725, 60, 80);
         if (Gdx.input.getY() >= 645 && Gdx.input.getY() <= 725 && Gdx.input.getX() >= 770 && Gdx.input.getX() <= 830) {
             if (Gdx.input.justTouched()) {
                 this.dispose();
-                game.setScreen(new MainGameScreen(game));
+                OrthographicCamera orthographicCamera = new OrthographicCamera();
+                orthographicCamera.setToOrtho(false, ProjectAP.WIDTH, ProjectAP.HEIGHT);
+                game.setScreen(new GameScreen(orthographicCamera, game, 8));
             }
         }
 
@@ -124,7 +138,9 @@ public class LevelMenuScreen implements Screen {
         if (Gdx.input.getY() >= 645 && Gdx.input.getY() <= 725 && Gdx.input.getX() >= 1160 && Gdx.input.getX() <= 1220) {
             if (Gdx.input.justTouched()) {
                 this.dispose();
-                game.setScreen(new MainGameScreen(game));
+                OrthographicCamera orthographicCamera = new OrthographicCamera();
+                orthographicCamera.setToOrtho(false, ProjectAP.WIDTH, ProjectAP.HEIGHT);
+                game.setScreen(new GameScreen(orthographicCamera, game, 9));
             }
         }
 

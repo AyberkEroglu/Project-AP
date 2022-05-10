@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="22" height="12" tilewidth="70" tileheight="70" infinite="0" nextlayerid="4" nextobjectid="21">
+ <tileset firstgid="1" source="../map6/PlatformTiles.tsx"/>
+ <layer id="1" name="Platform" width="22" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFMGANxDZYsC0d3WCFwx2UuMEKiskFuMKF3mFDK4DsP3L8gx62+MIaX1jicgMlcUcpAACsyAmR
+  </data>
+ </layer>
+ <objectgroup id="2" name="objects">
+  <object id="1" x="70" y="0">
+   <polygon points="0,0 0,560 -70,560 -70,0"/>
+  </object>
+  <object id="2" x="70" y="0">
+   <polygon points="0,0 1470,0 1470,70 0,70"/>
+  </object>
+  <object id="3" x="1470" y="70">
+   <polygon points="0,0 70,0 70,770 0,770"/>
+  </object>
+  <object id="4" x="1470" y="770">
+   <polygon points="0,0 -1470,0 -1470,70 0,70"/>
+  </object>
+  <object id="6" x="910" y="280">
+   <polygon points="0,0 420,0 420,70 0,70"/>
+  </object>
+  <object id="7" x="350" y="420">
+   <polygon points="0,0 560,0 560,70 0,70"/>
+  </object>
+  <object id="8" x="1190" y="560">
+   <polygon points="0,0 280,0 280,70 0,70"/>
+  </object>
+  <object id="9" x="0" y="700">
+   <polygon points="0,0 700,0 700,70 0,70"/>
+  </object>
+  <object id="10" x="770" y="630">
+   <polygon points="0,0 0,70 70,70 70,0"/>
+  </object>
+  <object id="11" x="910" y="700">
+   <polygon points="0,0 70,0 70,70 0,70"/>
+  </object>
+  <object id="12" x="1050" y="630">
+   <polygon points="0,0 0,70 70,70 70,0"/>
+  </object>
+  <object id="13" x="770" y="420">
+   <polygon points="0,0 0,-70 140,-70 140,0"/>
+  </object>
+  <object id="14" x="840" y="280">
+   <polygon points="0,0 70,0 70,70 0,70"/>
+  </object>
+  <object id="15" name="player" x="138.66" y="134.258" width="74.8325" height="72.6316"/>
+  <object id="17" name="enemy" x="630" y="350" width="65.5024" height="68.1818"/>
+  <object id="18" name="enemy" x="1050" y="210" width="70" height="70"/>
+  <object id="20" name="enemy" x="420" y="630" width="70.8134" height="69.9043"/>
+ </objectgroup>
+ <layer id="3" name="design" width="22" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgF6EASia1IIzv0iVQnBcXUNncU4AfhdLIHlNakGFDT3GACAKaSAXA=
+  </data>
+ </layer>
+</map>
