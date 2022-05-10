@@ -50,7 +50,7 @@ public class Enemy extends GameEntity {
                 elapsed = 0;
             }
         }
-        move();
+        //move();
 
         sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
 
