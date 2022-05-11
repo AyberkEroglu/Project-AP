@@ -21,6 +21,7 @@ public class Enemy {
     private World world;
     private Body body;
     public boolean kill;
+    private boolean isLeftSide = true;
 
     float elapsed = 0;
     int bulletPerSecond = 1;
