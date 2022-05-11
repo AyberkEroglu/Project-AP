@@ -95,6 +95,10 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
             enemy.render(batch);
         }
 
+        if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+            game.setScreen(new LevelMenuScreen(game));
+        }
+
         batch.end();
         box2DDebugRenderer.render(world, camera.combined.scl(PPM));
     }

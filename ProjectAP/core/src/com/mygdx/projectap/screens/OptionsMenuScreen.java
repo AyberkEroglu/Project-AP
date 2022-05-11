@@ -16,9 +16,8 @@ public class OptionsMenuScreen implements Screen {
     public OptionsMenuScreen(ProjectAP game) {
         this.game = game;
 
-        optionsMenu = new Texture("menu assets/Options Menu.drawio.png");
-        backMenuButton = new Texture("menu assets/Back Menu Button.drawio.png");
-
+        optionsMenu = new Texture("menu assets/Options Menu/Options Menu.drawio.png");
+        backMenuButton = new Texture("menu assets/Options Menu/Back Menu Button.drawio.png");
 
     }
 
@@ -35,7 +34,7 @@ public class OptionsMenuScreen implements Screen {
 
         game.batch.begin();
 
-        game.batch.draw(optionsMenu, 0, 0, 1600, 900);
+        game.batch.draw(optionsMenu, 0, 0, ProjectAP.WIDTH, ProjectAP.HEIGHT);
 
         game.batch.draw(backMenuButton, 30, ProjectAP.HEIGHT - 100, 150, 70);
         if (Gdx.input.getY() >= 30 && Gdx.input.getY() <= 100 && Gdx.input.getX() >= 30 && Gdx.input.getX() <= 180) {

@@ -26,17 +26,17 @@ public class LevelMenuScreen implements Screen {
     public LevelMenuScreen(ProjectAP game) {
         this.game = game;
 
-        levelMenu = new Texture("menu assets/Level Menu.drawio.png");
-        backButton = new Texture("menu assets/Back Button.drawio.png");
-        levelPlayButton1 = new Texture("menu assets/Level Menu Play Button.drawio.png");
-        levelPlayButton2 = new Texture("menu assets/Level Menu Play Button.drawio.png");
-        levelPlayButton3 = new Texture("menu assets/Level Menu Play Button.drawio.png");
-        levelPlayButton4 = new Texture("menu assets/Level Menu Play Button.drawio.png");
-        levelPlayButton6 = new Texture("menu assets/Level Menu Play Button.drawio.png");
-        levelPlayButton5 = new Texture("menu assets/Level Menu Play Button.drawio.png");
-        levelPlayButton7 = new Texture("menu assets/Level Menu Play Button.drawio.png");
-        levelPlayButton8 = new Texture("menu assets/Level Menu Play Button.drawio.png");
-        levelPlayButton9 = new Texture("menu assets/Level Menu Play Button.drawio.png");
+        levelMenu = new Texture("menu assets/Level Menu/Level Menu.drawio.png");
+        backButton = new Texture("menu assets/Level Menu/Back Button.drawio.png");
+        levelPlayButton1 = new Texture("menu assets/Level Menu/Play Level Button.drawio.png");
+        levelPlayButton2 = new Texture("menu assets/Level Menu/Play Level Button.drawio.png");
+        levelPlayButton3 = new Texture("menu assets/Level Menu/Play Level Button.drawio.png");
+        levelPlayButton4 = new Texture("menu assets/Level Menu/Play Level Button.drawio.png");
+        levelPlayButton6 = new Texture("menu assets/Level Menu/Play Level Button.drawio.png");
+        levelPlayButton5 = new Texture("menu assets/Level Menu/Play Level Button.drawio.png");
+        levelPlayButton7 = new Texture("menu assets/Level Menu/Play Level Button.drawio.png");
+        levelPlayButton8 = new Texture("menu assets/Level Menu/Play Level Button.drawio.png");
+        levelPlayButton9 = new Texture("menu assets/Level Menu/Play Level Button.drawio.png");
 
     }
 
@@ -53,7 +53,7 @@ public class LevelMenuScreen implements Screen {
 
         game.batch.begin();
 
-        game.batch.draw(levelMenu, 0, 0, 1600, 900);
+        game.batch.draw(levelMenu, 0, 0, ProjectAP.WIDTH, ProjectAP.HEIGHT);
         game.batch.draw(backButton, 30, ProjectAP.HEIGHT - 100, 150, 70);
         if (Gdx.input.getY() >= 30 && Gdx.input.getY() <= 100 && Gdx.input.getX() >= 30 && Gdx.input.getX() <= 180) {
             if (Gdx.input.justTouched()) {

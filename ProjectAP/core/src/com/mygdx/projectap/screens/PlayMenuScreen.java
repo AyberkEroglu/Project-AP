@@ -21,11 +21,11 @@ public class PlayMenuScreen implements Screen {
         this.game = game;
 
         playMenu = new Texture("menu assets/Background.drawio.png");
-        tutorialButton = new Texture("menu assets/Tutorial Button.drawio.png");
-        levelsButton = new Texture("menu assets/Levels Menu Button.drawio.png");
-        timeRaceButton = new Texture("menu assets/Time Race Button.drawio.png");
-        infinityModeButton = new Texture("menu assets/Infinity Mode Button.drawio.png");
-        backMenuButton = new Texture("menu assets/Back Menu Button.drawio.png");
+        tutorialButton = new Texture("menu assets/Play Menu/Tutorial Button.drawio.png");
+        levelsButton = new Texture("menu assets/Play Menu/Levels Menu Button.drawio.png");
+        timeRaceButton = new Texture("menu assets/Play Menu/Time Race Button.drawio.png");
+        infinityModeButton = new Texture("menu assets/Play Menu/Infinity Mode Button.drawio.png");
+        backMenuButton = new Texture("menu assets/Play Menu/Back Menu Button.drawio.png");
 
     }
 
