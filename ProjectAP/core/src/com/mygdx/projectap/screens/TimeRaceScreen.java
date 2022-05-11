@@ -91,6 +91,7 @@ public class TimeRaceScreen extends GameScreen implements ContactListener {
 
         if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
             game.setScreen(new TimeRaceLevelMenuScreen(game));
+            Bullet.bullets.clear();
         }
 
         if(Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)){
@@ -104,6 +105,7 @@ public class TimeRaceScreen extends GameScreen implements ContactListener {
         if (worldTimer <= 0) {
             worldTimer = 15;
             game.setScreen(new TimeRaceScreen(camera, game, levelNum, worldTimer));
+            Bullet.bullets.clear();
         }
 
 
@@ -177,6 +179,7 @@ public class TimeRaceScreen extends GameScreen implements ContactListener {
                 if (bullet.fromEnemy) {
                     worldTimer = 15;
                     game.setScreen(new TimeRaceScreen(camera, game, levelNum, worldTimer));
+                    Bullet.bullets.clear();
                 }
             }
             if (isContact("Enemy", "Bullet", objectsA[1], objectsB[1])) {
@@ -207,6 +210,7 @@ public class TimeRaceScreen extends GameScreen implements ContactListener {
                     //endOfMap = (endOfMap) objectsA[0];
                 }
                 game.setScreen(new LevelMenuScreen(game));
+                Bullet.bullets.clear();
             }
         }
     }

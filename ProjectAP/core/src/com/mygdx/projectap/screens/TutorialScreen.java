@@ -61,6 +61,7 @@ public class TutorialScreen extends GameScreen implements ContactListener {
 
         if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
             game.setScreen(new LevelMenuScreen(game));
+            Bullet.bullets.clear();
         }
 
         if(Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)){
@@ -143,6 +144,7 @@ public class TutorialScreen extends GameScreen implements ContactListener {
                 }
                 if (bullet.fromEnemy) {
                     game.setScreen(new InfinityModeScreen(camera, game, levelNum));
+                    Bullet.bullets.clear();
                 }
             }
             if (isContact("Enemy", "Bullet", objectsA[1], objectsB[1])) {
@@ -173,6 +175,7 @@ public class TutorialScreen extends GameScreen implements ContactListener {
                     //endOfMap = (endOfMap) objectsA[0];
                 }
                 game.setScreen(new LevelMenuScreen(game));
+                Bullet.bullets.clear();
             }
         }
     }
