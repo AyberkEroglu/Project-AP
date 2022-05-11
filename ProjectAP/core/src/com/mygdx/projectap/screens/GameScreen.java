@@ -62,6 +62,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
 
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             game.setScreen(new MainMenuScreen(game));
+            Bullet.bullets.clear();
         }
 
         player.update();
@@ -114,6 +115,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
 
         if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
             game.setScreen(new LevelMenuScreen(game));
+            Bullet.bullets.clear();
         }
 
         if(Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)){
@@ -204,6 +206,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
                 }
                 if (bullet.fromEnemy) {
                     game.setScreen(new GameScreen(camera, game, levelNum));
+                    Bullet.bullets.clear();
                 }
             }
             if (isContact("Enemy", "Bullet", objectsA[1], objectsB[1])) {
@@ -234,6 +237,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
                     //endOfMap = (endOfMap) objectsA[0];
                 }
                 game.setScreen(new LevelMenuScreen(game));
+                Bullet.bullets.clear();
             }
         }
     }
