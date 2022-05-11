@@ -38,16 +38,18 @@ public class Bullet {
     public void update(float deltaTime) {
         if (kill) {
             dispose();
+            this.sprite = null;
             body.getWorld().destroyBody(body);
             bullets.remove(this);
 
         }
 
-        sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 -21, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
+        else sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 -21, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
 
     }
 
     public void render(SpriteBatch batch) {
+        if (!kill)
         sprite.draw(batch);
     }
 
