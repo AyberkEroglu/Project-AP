@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="70" tileheight="70" infinite="0" nextlayerid="5" nextobjectid="22">
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="70" tileheight="70" infinite="0" nextlayerid="5" nextobjectid="24">
  <tileset firstgid="1" source="PlatformTiles.tsx"/>
  <layer id="2" name="Desen Katmanı 1" width="20" height="10">
   <data encoding="base64" compression="zlib">
@@ -47,5 +47,6 @@
   <object id="19" name="enemy" x="840" y="350" width="70" height="70"/>
   <object id="20" name="enemy" x="1120" y="70" width="70" height="70"/>
   <object id="21" name="enemy" x="980" y="350" width="70" height="70"/>
+  <object id="23" name="end" x="0" y="560" width="70" height="70"/>
  </objectgroup>
 </map>
