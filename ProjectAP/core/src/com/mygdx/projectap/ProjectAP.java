@@ -11,6 +11,7 @@ public class ProjectAP extends Game {
     public static final float BULLET_SPEED = 20f;
     public static final float ENEMY_SPEED = 10f;
     public static final float GRAVITY = -9.81f;
+    public static float staticScale;
     public float timeScale;
 
     public static int WIDTH = 1600;
@@ -26,6 +27,7 @@ public class ProjectAP extends Game {
     @Override
     public void render() {
         super.render();
+        staticScale = timeScale;
     }
 
     @Override

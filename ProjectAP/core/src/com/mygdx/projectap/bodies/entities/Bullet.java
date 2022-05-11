@@ -37,8 +37,10 @@ public class Bullet {
 
     public void update(float deltaTime) {
         if (kill) {
+            dispose();
             body.getWorld().destroyBody(body);
             bullets.remove(this);
+
         }
 
         sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 -21, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
@@ -51,5 +53,9 @@ public class Bullet {
 
     public Body getBody() {
         return body;
+    }
+
+    public void dispose(){
+        sprite.getTexture().dispose();
     }
 }

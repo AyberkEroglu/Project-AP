@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.mygdx.projectap.ProjectAP;
 import com.mygdx.projectap.bodies.helper.Constants;
 
 import static com.mygdx.projectap.bodies.helper.Constants.PPM;
@@ -16,14 +17,14 @@ public class Player extends GameEntity {
 
     public int jumpCount;
     public boolean jumpAllowed;
-
+    private ProjectAP game;
     private boolean isRightSide = true;
     private Sprite sprite;
 
 
     public Player(float width, float height, Body body) {
         super(width, height, body);
-        this.speed = 4f;
+        this.speed = 6f;
         this.sprite = new Sprite(new Texture("entity assets/saa.png"));
         this.sprite.setSize(90,60);
         jumpCount = 0;
@@ -57,7 +58,9 @@ public class Player extends GameEntity {
         if (Gdx.input.isKeyJustPressed(Input.Keys.UP) && jumpAllowed) {
             if (this.getBody().getLinearVelocity().y == 0) jumpCount = 0;
             jumpCount++;
-            getBody().applyLinearImpulse(new Vector2(0, 5 ), getBody().getLocalCenter(), true);
+            if (ProjectAP.staticScale == ProjectAP.FAST_TIME_SCALE)
+                getBody().applyLinearImpulse(new Vector2(0, 8 ), getBody().getLocalCenter(), true);
+            else getBody().applyLinearImpulse(new Vector2(0, 2 ), getBody().getLocalCenter(), true);
         }
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
