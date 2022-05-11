@@ -52,7 +52,7 @@ public class Enemy extends GameEntity {
         }
         //move();
 
-        sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
+        sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 -21, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
 
 
         elapsed += delta;

@@ -1,5 +1,6 @@
 package com.mygdx.projectap.bodies.helper;
 
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.objects.PolygonMapObject;
@@ -13,6 +14,7 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.mygdx.projectap.screens.GameScreen;
 import com.mygdx.projectap.bodies.entities.Enemy;
 import com.mygdx.projectap.bodies.entities.Player;
+import com.mygdx.projectap.screens.TimeRaceScreen;
 
 import java.util.ArrayList;
 

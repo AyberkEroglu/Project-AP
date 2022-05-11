@@ -72,7 +72,7 @@ public class PlayMenuScreen implements Screen {
         if (Gdx.input.getY() >= ProjectAP.HEIGHT - 520 && Gdx.input.getY() <= ProjectAP.HEIGHT - 420 && Gdx.input.getX() >= ProjectAP.WIDTH / 2 - timeRaceButton.getWidth() / 2 && Gdx.input.getX() <= ProjectAP.WIDTH / 2 - timeRaceButton.getWidth() / 2 + 420) {
             if (Gdx.input.justTouched()) {
                 this.dispose();
-                game.setScreen(new MainGameScreen(game));
+                game.setScreen(new TimeRaceLevelMenuScreen(game));
             }
         }
 

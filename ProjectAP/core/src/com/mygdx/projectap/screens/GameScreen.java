@@ -22,15 +22,15 @@ import static com.mygdx.projectap.bodies.helper.Constants.PPM;
 
 public class GameScreen extends ScreenAdapter implements ContactListener {
 
-    private OrthographicCamera camera;
-    private SpriteBatch batch;
-    private World world;
-    private Box2DDebugRenderer box2DDebugRenderer;
-    private OrthogonalTiledMapRenderer orthogonalTiledMapRenderer;
-    private TileMapHelper tileMapHelper;
-    private Player player;
-    private Enemy enemy;
-    private ProjectAP game;
+    protected OrthographicCamera camera;
+    protected SpriteBatch batch;
+    protected World world;
+    protected Box2DDebugRenderer box2DDebugRenderer;
+    protected OrthogonalTiledMapRenderer orthogonalTiledMapRenderer;
+    protected TileMapHelper tileMapHelper;
+    protected Player player;
+    protected Enemy enemy;
+    protected ProjectAP game;
 
     public ArrayList<Enemy> enemies;
 
@@ -48,7 +48,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
         this.game = game;
     }
 
-    private void update() {
+    void update() {
         world.step(1 / 60f, 6, 2);
         cameraUpdate();
 
@@ -71,7 +71,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
         }
     }
 
-    private void cameraUpdate() {
+    void cameraUpdate() {
         Vector3 position = camera.position;
         position.x = Math.round(player.getBody().getPosition().x * PPM * 10) / 10f;
         position.y = Math.round(player.getBody().getPosition().y * PPM * 10) / 10f;
