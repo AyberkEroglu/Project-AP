@@ -80,6 +80,7 @@ public class TileMapHelper {
         Shape shape = createPolygonShape(polygonMapObject);
         Fixture fixture = body.createFixture(shape, 1000);
         fixture.setUserData(new Object[]{this, "Wall"});
+        fixture.setFriction(0.005f);
         shape.dispose();
     }
 
