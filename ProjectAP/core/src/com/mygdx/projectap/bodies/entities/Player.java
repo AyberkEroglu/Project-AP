@@ -24,7 +24,7 @@ public class Player extends GameEntity {
 
     public Player(float width, float height, Body body) {
         super(width, height, body);
-        this.speed = 15f;
+        this.speed = 8f;
         this.sprite = new Sprite(new Texture("entity assets/saa.png"));
         this.sprite.setSize(90,60);
         jumpCount = 0;
@@ -40,13 +40,13 @@ public class Player extends GameEntity {
 
 
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            getBody().setLinearVelocity(5, getBody().getLinearVelocity().y);
+            getBody().setLinearVelocity(speed, getBody().getLinearVelocity().y);
             if (!isRightSide) {
                 sprite.flip(true,false);
             }
             isRightSide = true;
         } else if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-            getBody().setLinearVelocity(-5, getBody().getLinearVelocity().y);
+            getBody().setLinearVelocity(-speed, getBody().getLinearVelocity().y);
             if (isRightSide) {
                 sprite.flip(true,false);
             }
