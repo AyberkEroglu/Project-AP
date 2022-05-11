@@ -90,7 +90,7 @@ public class TimeRaceScreen extends GameScreen implements ContactListener {
         }
 
         if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
-            game.setScreen(new LevelMenuScreen(game));
+            game.setScreen(new TimeRaceLevelMenuScreen(game));
         }
 
         if(Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)){
