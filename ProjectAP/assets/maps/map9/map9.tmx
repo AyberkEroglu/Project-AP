@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="22" height="12" tilewidth="70" tileheight="70" infinite="0" nextlayerid="3" nextobjectid="20">
- <tileset firstgid="1" source="../map7/PlatformTiles.tsx"/>
+ <tileset firstgid="1" source="PlatformTiles.tsx"/>
  <layer id="1" name="Desen Katmanı 1" width="22" height="12">
   <data encoding="base64" compression="zlib">
    eJxjYBgFMGANxDZ4sA6N7KWVuYPNP+E0MpeQP23x6IWZK09lN1EKCPkJ2W+0BADcRApF
