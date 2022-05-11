@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="22" height="12" tilewidth="70" tileheight="70" infinite="0" nextlayerid="3" nextobjectid="20">
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="22" height="12" tilewidth="70" tileheight="70" infinite="0" nextlayerid="4" nextobjectid="21">
  <tileset firstgid="1" source="PlatformTiles.tsx"/>
- <layer id="1" name="Desen Katmanı 1" width="22" height="12">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFMGANxDZ4sA6N7KWVuYPNP+E0MpeQP23x6IWZK09lN1EKCPkJ2W+0BADcRApF
-  </data>
- </layer>
+ <tileset firstgid="113" source="Background.tsx"/>
  <objectgroup id="2" name="objects">
   <object id="1" x="0" y="70">
    <polygon points="0,0 1540,0 1540,-70 0,-70"/>
@@ -50,6 +46,16 @@
   <object id="15" name="enemy" x="910" y="280" width="70" height="70"/>
   <object id="16" name="enemy" x="910" y="630" width="70" height="70"/>
   <object id="17" name="enemy" x="280" y="490" width="70" height="70"/>
-  <object id="18" name="end" x="70" y="490" width="70" height="70"/>
+  <object id="20" name="end" x="70" y="490" width="70" height="70"/>
  </objectgroup>
+ <layer id="3" name="Background" width="22" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxN0jVCFQAAANAPiIASgnEDuztuYHfHDQxAujF2g04VMHYDaaSN3aBLJYzdeIODw7vBiw8EAgkkcpUkkkkhlTTSySCTLLLJIZc88rnGdW5wkwIKKaKYEkopo5wKKqmimnvc5wE11FLHQx7xmCfU85IGGmmimRZaaaOdV3TQSRfd9NBLH695w1ve0c8AgwwxzAijjDHOBJN85gtfmWKaGWb5xnd+8JOgoEAgmBDmEMpcwggngnnMJ5IooolhAbHEsZBFLGYJS1nGclawklWsZg1rWcd6NrCRTWxmC1vZxnZ2sJNd7GYPe9nHfg5wkEMc5ghHOcZxTnCSU5zmDGc5x3kucJFLXOYK8SSQyFWSSCaFVNJIJ4NMssgmh1zyyOcWt7nDXQoopIhiSiiljHIqqKTqP9X/1FBLHU95xnNeUM9LGmikiWZaaKWNdl7RQSdddNNDL3285wMf+UQ/AwwyxDAjjDLGOBNM8pkvfGWKaWaY5Re/+UMg2DuCCWEOocwljHAimMd8IokimhgWEEscfwFXwYlI
+  </data>
+ </layer>
+ <layer id="1" name="Desen Katmanı 1" width="22" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFMGANxDZ4sA6N7KWVuYPNP+E0MpeQP23x6IWZK09lN1EKCPkJ2W+0BADcRApF
+  </data>
+ </layer>
 </map>

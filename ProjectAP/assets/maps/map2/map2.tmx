@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="70" tileheight="70" infinite="0" nextlayerid="6" nextobjectid="26">
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="70" tileheight="70" infinite="0" nextlayerid="7" nextobjectid="26">
  <tileset firstgid="1" source="PlatformTiles.tsx"/>
- <layer id="1" name="Desen Katmanı 1" width="20" height="10">
-  <data encoding="base64" compression="zlib">
-   eJxjYBjcwBqIbaDYC4ptkGhbKtqlBsXEAC8SzXaBYhDQwKMunEjzPBlQwwNXOMDCzhuIraCYWgDdPBMi9JggqQtjQPgDOU5tcPBxySGzJaFYCoglkLAUFjGYOLIeSTQMAIWBDsw=
-  </data>
- </layer>
- <layer id="4" name="Desen Katmanı 2" width="20" height="10">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgZwIJK5lgDsQ0U21LJTGoAxRFmHr0AALDqAYw=
-  </data>
- </layer>
+ <tileset firstgid="113" source="Background.tsx"/>
  <objectgroup id="5" name="objects">
   <object id="7" x="0" y="140">
    <polygon points="0,0 630,0 630,70 0,70"/>
@@ -36,4 +27,19 @@
   <object id="22" name="enemy" x="265" y="3" width="70" height="70"/>
   <object id="23" name="end" x="0" y="350" width="70" height="70"/>
  </objectgroup>
+ <layer id="6" name="Background" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJwN0mciFQAAAODnPXsmF0D2HsUF7L0VVygVKtK4QkahaVwB7aiMKyQtkdYVKN+P7wZfIBgIhBEkRDgRRBJFNDHEEkc8CSSSxAmSOUkKGWSSRTY55JJHPgUUUkQxJZRSRjmnOUMFldRRTwONNNFMC6200U4HnXTRTQ+9nOUcffRzngsMcJFLXGaQIYa5wlWuMcIo1xnjBje5xW3uMM4Ek0xxl3tMM8Ms93nAQx7xmCfMMc8CiyyxzApPecZzXvCSV7zmDaus8ZZ3vGedDTbZ4gPbfGSHT3zmC1/5xi7f2WOfHxzwk1/85g9/OeSIf/wnEPKHICHCiSCSKKKJIZY44kkgkSRSSSOdU2SQSRbZ5JBLHvkUUEgRxZRQShnlVFFNDbXUUU8DjTTRTAuttNFOB5100U0PvRwDIHVPxQ==
+  </data>
+ </layer>
+ <layer id="1" name="Desen Katmanı 1" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBjcwBqIbaDYC4ptkGhbKtqlBsXEAC8SzXaBYhDQwKMunEjzPBlQwwNXOMDCzhuIraCYWgDdPBMi9JggqQtjQPgDOU5tcPBxySGzJaFYCoglkLAUFjGYOLIeSTQMAIWBDsw=
+  </data>
+ </layer>
+ <layer id="4" name="Desen Katmanı 2" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgZwIJK5lgDsQ0U21LJTGoAxRFmHr0AALDqAYw=
+  </data>
+ </layer>
 </map>
