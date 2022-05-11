@@ -8,6 +8,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.projectap.bodies.helper.BodyHelperService;
 import com.mygdx.projectap.bodies.helper.Constants;
+import com.mygdx.projectap.screens.GameScreen;
 
 import static com.mygdx.projectap.bodies.helper.Constants.PPM;
 
@@ -94,14 +95,14 @@ public class Enemy {
 
     public void move(){
         if(attack && player.getBody().getPosition().x < this.getBody().getPosition().x){
-            this.getBody().setLinearVelocity(-1,this.getBody().getLinearVelocity().y);
+            this.getBody().setLinearVelocity(-5,this.getBody().getLinearVelocity().y);
             if(!isLeftSide){
                 sprite.flip(true,false);
             }
             isLeftSide = true;
         }
         if(attack && player.getBody().getPosition().x > this.getBody().getPosition().x){
-            this.getBody().setLinearVelocity(1,this.getBody().getLinearVelocity().y);
+            this.getBody().setLinearVelocity(5,this.getBody().getLinearVelocity().y);
             if(isLeftSide){
                 sprite.flip(true,false);
             }
