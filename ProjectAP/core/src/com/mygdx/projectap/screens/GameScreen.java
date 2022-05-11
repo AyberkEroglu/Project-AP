@@ -31,6 +31,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
     protected Player player;
     protected Enemy enemy;
     protected ProjectAP game;
+    protected int levelNum;
 
     public ArrayList<Enemy> enemies;
 
@@ -46,6 +47,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
         world.setContactListener(this);
 
         this.game = game;
+        this.levelNum = levelNum;
     }
 
     void update() {
@@ -118,13 +120,14 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
 
         if (objectsA != null && objectsB != null) {
 
-            if (isConnact("Player", "EnemySensor", objectsA[1], objectsB[1])) {
+            if (isContact("Player", "EnemySensor", objectsA[1], objectsB[1])) {
                 if (objectsA[1].equals("Player")) {
                     ((Enemy) objectsB[0]).enter();
                 } else {
                     ((Enemy) objectsA[0]).enter();
                 }
-            } else if (objectsB[1].equals("Bullet") || objectsA[1].equals("Bullet")) {
+            }
+            if (objectsB[1].equals("Bullet") || objectsA[1].equals("Bullet")) {
                 Bullet bullet;
                 if (objectsB[1].equals("Bullet")) {
                     bullet = (Bullet) objectsB[0];
@@ -132,14 +135,29 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
                     bullet = (Bullet) objectsA[0];
                 }
 
-                if (isConnact("Enemy", "Bullet", objectsA[1], objectsB[1]) && bullet.fromEnemy) {
+                if (isContact("Enemy", "Bullet", objectsA[1], objectsB[1]) && bullet.fromEnemy) {
 
-                } else if (isConnact("EnemySensor", "Bullet", objectsA[1], objectsB[1])) {
+                } else if (isContact("EnemySensor", "Bullet", objectsA[1], objectsB[1])) {
 
-                } else if (isConnact("Player", "Bullet", objectsA[1], objectsB[1]) && !bullet.fromEnemy) {
+                } else if (isContact("Player", "Bullet", objectsA[1], objectsB[1]) && !bullet.fromEnemy) {
 
                 } else {
                     bullet.kill = true;
+                }
+            }
+            if (isContact("Player", "Bullet", objectsA[1], objectsB[1])) {
+                Bullet bullet;
+                //Player player;
+                if (objectsA[1].equals("Player")) {
+                    //player = (Player) objectsA[0];
+                    bullet = (Bullet) objectsB[0];
+                }
+                else {
+                    //player = (Player) objectsB[0];
+                    bullet = (Bullet) objectsA[0];
+                }
+                if (bullet.fromEnemy) {
+                    game.setScreen(new GameScreen(camera, game, levelNum));
                 }
             }
         }
@@ -152,7 +170,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
 
         if (objectsA != null && objectsB != null) {
 
-            if (isConnact("Player", "EnemySensor", objectsA[1], objectsB[1])) {
+            if (isContact("Player", "EnemySensor", objectsA[1], objectsB[1])) {
                 if (objectsA[1].equals("Player")) {
                     ((Enemy) objectsB[0]).exit();
                 } else {
@@ -172,7 +190,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
 
     }
 
-    private boolean isConnact(String id1, String id2, Object a, Object b) {
+    private boolean isContact(String id1, String id2, Object a, Object b) {
         if (a == null || b == null) return false;
         return ((a.equals(id1) && b.equals(id2)) ||
                 (a.equals(id2) && b.equals(id1)));
