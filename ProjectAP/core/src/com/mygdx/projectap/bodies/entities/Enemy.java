@@ -3,6 +3,7 @@ package com.mygdx.projectap.bodies.entities;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.projectap.bodies.helper.BodyHelperService;
@@ -10,34 +11,41 @@ import com.mygdx.projectap.bodies.helper.Constants;
 
 import static com.mygdx.projectap.bodies.helper.Constants.PPM;
 
-public class Enemy extends GameEntity {
+public class Enemy {
     private int decider = 0;
 
     private Player player;
 
     private Body sensorBody;
     private Sprite sprite;
-
     private World world;
+    private Body body;
+    public boolean kill;
 
     float elapsed = 0;
     int bulletPerSecond = 1;
 
-    public Enemy(float width, float height, World world, Body body) {
-        super(width, height, body);
+    public Enemy(Rectangle rectangle, World world) {
+
+        Body body = BodyHelperService.createBody(rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2, 30, 60, false, world, new Object[]{this, "Enemy"});
+        this.body = body;
 
         this.world = world;
         sprite = new Sprite(new Texture("entity assets/zombie.png"));
         sprite.setSize(90,60);
-        sensorBody = BodyHelperService.createBody(x, y, width * 10, width * 10, false, world, true, new Object[]{this, "EnemySensor"});
+        float x = body.getPosition().x;
+        float y = body.getPosition().y;
+        sensorBody = BodyHelperService.createBody(x, y, 30 * 10, 60 * 10, false, world, true, new Object[]{this, "EnemySensor"});
     }
 
-    @Override
     public void update() {
 
     }
 
     public void update(float delta) {
+        if (kill) {
+            body.getWorld().destroyBody(body);
+        }
         sensorBody.setTransform(getBody().getPosition().x, getBody().getPosition().y, getBody().getAngle());
 
         if (attack) {
@@ -58,7 +66,6 @@ public class Enemy extends GameEntity {
         elapsed += delta;
     }
 
-    @Override
     public void render(SpriteBatch batch) {
         sprite.draw(batch);
     }
@@ -93,4 +100,22 @@ public class Enemy extends GameEntity {
 
         }
     }
+
+    public Body getBody() {
+        return body;
+    }
+
+    public void setBody(Body body) {
+        this.body = body;
+    }
+
+    public void setSensorBody(Body body) {
+        this.sensorBody = body;
+    }
+
+    public void setSprite(Sprite sprite) {
+        this.sprite = sprite;
+    }
+
+    public void setWorld(World world) { this.world = world; }
 }

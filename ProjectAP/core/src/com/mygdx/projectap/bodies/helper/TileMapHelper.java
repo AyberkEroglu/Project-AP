@@ -58,8 +58,7 @@ public class TileMapHelper {
                 }
 
                 if (rectangleName.equals("enemy")) {
-                    Body body = BodyHelperService.createBody(rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2, 30, 60, false, gameScreen.getWorld(), new Object[]{this, "Enemy"});
-                    Enemy enemy = new Enemy(30, 60, gameScreen.getWorld(), body);
+                    Enemy enemy = new Enemy(rectangle, gameScreen.getWorld());
                     enemy.setPlayer(gameScreen.getPlayer());
 
                     gameScreen.enemies.add(enemy);

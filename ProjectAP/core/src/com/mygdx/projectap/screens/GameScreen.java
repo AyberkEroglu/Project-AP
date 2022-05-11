@@ -19,6 +19,7 @@ import com.mygdx.projectap.bodies.entities.Bullet;
 
 import java.util.ArrayList;
 
+import static com.mygdx.projectap.bodies.entities.Bullet.bullets;
 import static com.mygdx.projectap.bodies.helper.Constants.PPM;
 
 public class GameScreen extends ScreenAdapter implements ContactListener {
@@ -68,9 +69,9 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
             enemy.update(Gdx.graphics.getDeltaTime());
 
         }
-        if (Bullet.bullets != null) {
-            for (int i = 0; i < Bullet.bullets.size(); i++) {
-                Bullet.bullets.get(i).update(Gdx.graphics.getDeltaTime());
+        if (bullets != null) {
+            for (int i = 0; i < bullets.size(); i++) {
+                bullets.get(i).update(Gdx.graphics.getDeltaTime());
             }
         }
     }
@@ -99,6 +100,12 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
             enemy.render(batch);
         }
 
+        if (bullets != null) {
+            for (int i = 0; i < bullets.size(); i++) {
+                bullets.get(i).render(batch);
+            }
+        }
+
         if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
             game.setScreen(new LevelMenuScreen(game));
         }
@@ -113,7 +120,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
 
 
         batch.end();
-        box2DDebugRenderer.render(world, camera.combined.scl(PPM));
+       // box2DDebugRenderer.render(world, camera.combined.scl(PPM));
     }
 
     private void adjustVelocities(float timeScale) {
@@ -121,9 +128,9 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
         for (Enemy enemy : enemies) {
             enemy.getBody().setLinearVelocity(enemy.getBody().getLinearVelocity().x * timeScale, 0);
         }
-        if (Bullet.bullets != null){
+        if (bullets != null){
             for (Bullet bl :
-                    Bullet.bullets) {
+                    bullets) {
                 if (timeScale == ProjectAP.SLOWED_TIME_SCALE)
                     bl.getBody().setLinearVelocity((float) (-1 * Math.cos(bl.angle) * ProjectAP.BULLET_SPEED * timeScale), (float) (-1 * Math.sin(bl.angle) * ProjectAP.BULLET_SPEED * timeScale));
                 else bl.getBody().setLinearVelocity((float) (-1 * Math.cos(bl.angle) * ProjectAP.BULLET_SPEED), (float) (-1 * Math.sin(bl.angle) * ProjectAP.BULLET_SPEED));
@@ -194,15 +201,16 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
                 Bullet bullet;
                 Enemy enemy;
                 if (objectsA[1].equals("Enemy")) {
-                    //enemy = (Enemy) objectsA[0];
+                    enemy = (Enemy) objectsA[0];
                     bullet = (Bullet) objectsB[0];
                 }
                 else {
-                    //enemy = (Enemy) objectsB[0];
+                    enemy = (Enemy) objectsB[0];
                     bullet = (Bullet) objectsA[0];
                 }
                 if (!bullet.fromEnemy) {
-                    //enemy.getBody().getWorld().destroyBody(enemy.getBody());
+                    enemy.kill = true;
+                    enemies.remove(enemy);
                 }
             }
             if (isContact("Player", "EndOfMap", objectsA[1], objectsB[1])) {
