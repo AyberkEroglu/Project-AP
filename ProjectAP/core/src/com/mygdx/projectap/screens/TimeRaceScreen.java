@@ -65,11 +65,13 @@ public class TimeRaceScreen extends GameScreen implements ContactListener {
     @Override
     public void render(float delta) {
         this.update();
-        for (Bullet bullet:
-                Bullet.bullets) {
-            if (bullet.getBody().getLinearVelocity().x == 0 && bullet.getBody().getLinearVelocity().y == 0) bullet.kill = true;
+        if (bullets != null) {
+            for (Bullet bullet :
+                    Bullet.bullets) {
+                if (bullet.getBody().getLinearVelocity().x == 0 && bullet.getBody().getLinearVelocity().y == 0)
+                    bullet.kill = true;
+            }
         }
-
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 

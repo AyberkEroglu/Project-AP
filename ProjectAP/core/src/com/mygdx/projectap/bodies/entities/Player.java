@@ -24,7 +24,7 @@ public class Player extends GameEntity {
 
     public Player(float width, float height, Body body) {
         super(width, height, body);
-        this.speed = 8f;
+        this.speed = 15f;
         this.sprite = new Sprite(new Texture("entity assets/saa.png"));
         this.sprite.setSize(90,60);
         jumpCount = 0;
