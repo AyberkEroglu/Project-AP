@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="22" height="12" tilewidth="70" tileheight="70" infinite="0" nextlayerid="5" nextobjectid="18">
+ <tileset firstgid="1" source="Background.tsx"/>
+ <tileset firstgid="793" source="PlatformTiles.tsx"/>
+ <objectgroup id="2" name="objects">
+  <object id="4" x="70" y="210">
+   <polygon points="0,0 0,70 840,70 840,0"/>
+  </object>
+  <object id="5" x="980" y="210">
+   <polygon points="0,0 0,70 490,70 490,0 0,0"/>
+  </object>
+  <object id="8" x="70" y="210">
+   <polygon points="0,0 0,70 840,70 840,0"/>
+  </object>
+  <object id="9" x="980" y="210">
+   <polygon points="0,0 0,70 490,70 490,0"/>
+  </object>
+  <object id="11" x="630" y="140">
+   <polygon points="0,0 0,70 70,70 70,0"/>
+  </object>
+  <object id="12" x="280" y="140">
+   <polygon points="0,0 0,70 70,70 70,0"/>
+  </object>
+  <object id="13" name="player" x="140" y="70" width="70" height="70"/>
+  <object id="14" name="end" x="70" y="420" width="70" height="70"/>
+  <object id="15" name="enemy" x="420" y="420" width="70" height="70"/>
+  <object id="16" name="enemy" x="1260" y="420" width="70" height="70"/>
+  <object id="17" x="70" y="490">
+   <polygon points="0,0 0,70 1400,70 1400,0"/>
+  </object>
+ </objectgroup>
+ <layer id="3" name="Background" width="22" height="12">
+  <data encoding="base64" compression="zlib">
+   eJwNw0VWFQAAAMBPS4dg3MDujhvY3XEDgwZpjL0BKKmUsTcIEaStvUEpICBg7J15b1KDAoE0080w0yyzzTHXa+aZb4GFFllsiaVe94Y3vWWZ5VZ43wdWWmW1NdZa50MfWW+DjTbZ7GOf+NRntthqm+2+tsM3dtrlW7vtsdc++x1w0He+94Mf/eSQw4446pjf/eG4E0760ymnnfGXs84572//+Nd/hgYHAmGGG+ECI40y2hhjjTPeBBNNcqHJprjIxS5xqctc7gpXusrVrnGt61zvBje6yc1ucavb3O4Od7rL3e5xr/vc7wEPesjDHvGoxzzuCU96ytOe8aznPO8FL3rJy17xqqmmmW6GmWaZbY65XjPPfAsstMhiSyz1tne86z3LLLfC+z6w0iqrrbHWOh/6yHobbLTJZp/7wpe+ssVW22z3tR2+sdMu39ptj7322e+Ag77zs1/86jeHHHbEUcf87g/HnXDSn0457Yy/nHXOeQMhgUCQwYYYapjhRrjASKOMNsZY44w3wUSTXGiyKf4H7z+Kcw==
+  </data>
+ </layer>
+ <layer id="1" name="Tile Layer 1" width="22" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBjawJSZODFiQDBQXwiVcCiZbgABSwr0UsPcfBLtJ9bcRCqGbzKNwmgUoAIAltwPSw==
+  </data>
+ </layer>
+ <layer id="4" name="Tile Layer 3" width="22" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgF5AJL5lFzaWnuKBh4AAA+MgDx
+  </data>
+ </layer>
+</map>

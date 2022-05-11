@@ -94,7 +94,7 @@
    <polygon points="0,0 70,0 69.3333,12.6667 0,10"/>
   </object>
   <object id="31" name="player" x="140" y="140" width="70" height="70"/>
-  <object id="32" name="enemy" x="624.242" y="139.394" width="70" height="70"/>
+  <object id="32" name="enemy" x="420" y="140" width="70" height="70"/>
   <object id="33" name="enemy" x="910" y="280" width="70" height="70"/>
   <object id="34" name="enemy" x="2100" y="210" width="70" height="70"/>
   <object id="36" name="enemy" x="2800" y="140" width="70" height="70"/>

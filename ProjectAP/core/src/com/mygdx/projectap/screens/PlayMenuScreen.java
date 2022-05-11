@@ -57,7 +57,9 @@ public class PlayMenuScreen implements Screen {
         if (Gdx.input.getY() >= ProjectAP.HEIGHT - 840 && Gdx.input.getY() <= ProjectAP.HEIGHT - 740 && Gdx.input.getX() >= ProjectAP.WIDTH / 2 - tutorialButton.getWidth() / 2 && Gdx.input.getX() <= ProjectAP.WIDTH / 2 - tutorialButton.getWidth() / 2 + 390) {
             if (Gdx.input.justTouched()) {
                 this.dispose();
-                game.setScreen(new MainGameScreen(game));
+                OrthographicCamera orthographicCamera = new OrthographicCamera();
+                orthographicCamera.setToOrtho(false, ProjectAP.WIDTH, ProjectAP.HEIGHT);
+                game.setScreen(new GameScreen(orthographicCamera, game, 0));
             }
         }
 
