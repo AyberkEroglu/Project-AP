@@ -22,9 +22,9 @@
    <polygon points="0,0 0,70 1400,70 1400,0"/>
   </object>
   <object id="17" name="player" x="70" y="0" width="70" height="70"/>
-  <object id="20" name="enemy" x="801" y="253" width="70" height="70"/>
-  <object id="21" name="enemy" x="1189" y="43" width="70" height="70"/>
-  <object id="22" name="enemy" x="265" y="3" width="70" height="70"/>
+  <object id="20" name="enemy" x="840" y="280" width="70" height="70"/>
+  <object id="21" name="enemy" x="1260" y="140" width="70" height="70"/>
+  <object id="22" name="enemy" x="350" y="70" width="70" height="70"/>
   <object id="23" name="end" x="0" y="350" width="70" height="70"/>
  </objectgroup>
  <layer id="6" name="Background" width="20" height="10">
