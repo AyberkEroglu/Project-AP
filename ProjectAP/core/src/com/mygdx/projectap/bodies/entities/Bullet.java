@@ -11,6 +11,7 @@ public class Bullet {
     public static ArrayList<Bullet> bullets;
     public boolean kill;
     Body body;
+    public float angle;
 
     public boolean fromEnemy;
 
@@ -22,6 +23,7 @@ public class Bullet {
             bullets = new ArrayList<>();
         }
         this.fromEnemy = fromEnemy;
+        this.angle = angle;
     }
 
     public void update(float deltaTime) {

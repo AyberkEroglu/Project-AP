@@ -71,7 +71,6 @@ public class Enemy extends GameEntity {
 
     public void enter() {
         attack = true;
-        System.out.println("Girdi");
 
     }
 
@@ -85,13 +84,13 @@ public class Enemy extends GameEntity {
         if (decider < 10) {
             this.getBody().setLinearVelocity(10, this.getBody().getLinearVelocity().y);
             decider++;
-            System.out.println(decider);
+
         }
         else {
             this.getBody().setLinearVelocity(-10, this.getBody().getLinearVelocity().y);
             decider ++;
             if (decider >= 20) decider = 0;
-            System.out.println(decider);
+
         }
     }
 }

@@ -101,9 +101,35 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
             game.setScreen(new LevelMenuScreen(game));
         }
 
+        if(Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)){
+            game.timeScale = ProjectAP.SLOWED_TIME_SCALE;
+            adjustVelocities(ProjectAP.SLOWED_TIME_SCALE);
+        } else{
+            game.timeScale = ProjectAP.FAST_TIME_SCALE;
+            adjustVelocities(ProjectAP.FAST_TIME_SCALE);
+        }
+
+
         batch.end();
         box2DDebugRenderer.render(world, camera.combined.scl(PPM));
     }
+
+    private void adjustVelocities(float timeScale) {
+        //player.getBody().setLinearVelocity(player.getBody().getLinearVelocity().x * timeScale, player.getBody().getLinearVelocity().y);
+        for (Enemy enemy : enemies) {
+            enemy.getBody().setLinearVelocity(enemy.getBody().getLinearVelocity().x * timeScale, 0);
+        }
+        if (Bullet.bullets != null){
+            for (Bullet bl :
+                    Bullet.bullets) {
+                if (timeScale == ProjectAP.SLOWED_TIME_SCALE)
+                    bl.getBody().setLinearVelocity((float) (-1 * Math.cos(bl.angle) * ProjectAP.BULLET_SPEED * timeScale), (float) (-1 * Math.sin(bl.angle) * ProjectAP.BULLET_SPEED * timeScale));
+                else bl.getBody().setLinearVelocity((float) (-1 * Math.cos(bl.angle) * ProjectAP.BULLET_SPEED), (float) (-1 * Math.sin(bl.angle) * ProjectAP.BULLET_SPEED));
+            }
+        }
+        world.setGravity(new Vector2(0, ProjectAP.GRAVITY * timeScale));
+    }
+
 
     public World getWorld() {
         return world;
