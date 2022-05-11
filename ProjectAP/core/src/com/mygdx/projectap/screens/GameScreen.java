@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.*;
 import com.mygdx.projectap.ProjectAP;
+import com.mygdx.projectap.bodies.entities.EndOfMap;
 import com.mygdx.projectap.bodies.entities.Enemy;
 import com.mygdx.projectap.bodies.helper.TileMapHelper;
 import com.mygdx.projectap.bodies.entities.Player;
@@ -32,6 +33,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
     protected Enemy enemy;
     protected ProjectAP game;
     protected int levelNum;
+    protected EndOfMap end;
 
     public ArrayList<Enemy> enemies;
 
@@ -139,6 +141,8 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
         this.player = player;
     }
 
+    public void setEndOfMap(EndOfMap end) { this.end = end; }
+
     @Override
     public void beginContact(Contact contact) {
         Object[] objectsA = (Object[]) contact.getFixtureA().getUserData();
@@ -184,6 +188,33 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
                 }
                 if (bullet.fromEnemy) {
                     game.setScreen(new GameScreen(camera, game, levelNum));
+                }
+            }
+            if (isContact("Enemy", "Bullet", objectsA[1], objectsB[1])) {
+                Bullet bullet;
+                Enemy enemy;
+                if (objectsA[1].equals("Enemy")) {
+                    //enemy = (Enemy) objectsA[0];
+                    bullet = (Bullet) objectsB[0];
+                }
+                else {
+                    //enemy = (Enemy) objectsB[0];
+                    bullet = (Bullet) objectsA[0];
+                }
+                if (!bullet.fromEnemy) {
+                    //enemy.getBody().getWorld().destroyBody(enemy.getBody());
+                }
+            }
+            if (isContact("Player", "EndOfMap", objectsA[1], objectsB[1])) {
+                EndOfMap endOfMap;
+                Player player;
+                if (objectsA[1].equals("Player")) {
+                    //player = (Player) objectsA[0];
+                    //endOfMap = (endOfMap) objectsB[0];
+                }
+                else {
+                    //player = (Player) objectsB[0];
+                    //endOfMap = (endOfMap) objectsA[0];
                 }
             }
         }

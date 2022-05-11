@@ -11,6 +11,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import com.mygdx.projectap.bodies.entities.EndOfMap;
 import com.mygdx.projectap.screens.GameScreen;
 import com.mygdx.projectap.bodies.entities.Enemy;
 import com.mygdx.projectap.bodies.entities.Player;
@@ -62,6 +63,12 @@ public class TileMapHelper {
                     enemy.setPlayer(gameScreen.getPlayer());
 
                     gameScreen.enemies.add(enemy);
+                }
+
+                if (rectangleName.equals("end")) {
+                    EndOfMap end = new EndOfMap(rectangle, gameScreen.getWorld());
+
+                    gameScreen.setEndOfMap(end);
                 }
             }
         }
