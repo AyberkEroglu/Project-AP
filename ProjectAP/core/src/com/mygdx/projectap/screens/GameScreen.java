@@ -124,8 +124,11 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
     }
 
     private void adjustVelocities(float timeScale) {
+
         //player.getBody().setLinearVelocity(player.getBody().getLinearVelocity().x * timeScale, player.getBody().getLinearVelocity().y);
         for (Enemy enemy : enemies) {
+
+            if (game.timeScale != 1)
             enemy.getBody().setLinearVelocity(enemy.getBody().getLinearVelocity().x * timeScale, 0);
         }
         if (bullets != null){

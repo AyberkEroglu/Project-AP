@@ -58,9 +58,14 @@ public class Enemy {
                 elapsed = 0;
             }
         }
-        //move();
+        move();
 
-        sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 -21, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
+        if(!isLeftSide){
+            sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 +21, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
+        }
+        if(isLeftSide){
+            sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 -21, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
+        }
 
 
         elapsed += delta;
@@ -87,7 +92,26 @@ public class Enemy {
     }
 
     public void move(){
+        if(attack && player.getBody().getPosition().x < this.getBody().getPosition().x){
+            this.getBody().setLinearVelocity(-1,this.getBody().getLinearVelocity().y);
+            if(!isLeftSide){
+                sprite.flip(true,false);
+            }
+            isLeftSide = true;
+        }
+        if(attack && player.getBody().getPosition().x > this.getBody().getPosition().x){
+            this.getBody().setLinearVelocity(1,this.getBody().getLinearVelocity().y);
+            if(isLeftSide){
+                sprite.flip(true,false);
+            }
+            isLeftSide = false;
+        }
+        if(!attack){
+            this.getBody().setLinearVelocity(this.getBody().getLinearVelocity().x,this.getBody().getLinearVelocity().y);
+        }
 
+
+        /*
         if (decider < 10) {
             this.getBody().setLinearVelocity(10, this.getBody().getLinearVelocity().y);
             decider++;
@@ -99,6 +123,7 @@ public class Enemy {
             if (decider >= 20) decider = 0;
 
         }
+         */
     }
 
     public Body getBody() {

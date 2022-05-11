@@ -14,6 +14,9 @@ import static com.mygdx.projectap.bodies.helper.Constants.PPM;
 
 public class Player extends GameEntity {
 
+    public int jumpCount;
+    public boolean jumpAllowed;
+
     private boolean isRightSide = true;
     private Sprite sprite;
 
@@ -23,10 +26,18 @@ public class Player extends GameEntity {
         this.speed = 4f;
         this.sprite = new Sprite(new Texture("entity assets/saa.png"));
         this.sprite.setSize(90,60);
+        jumpCount = 0;
+        jumpAllowed = true;
     }
 
     @Override
     public void update() {
+        if (this.getBody().getLinearVelocity().y == 0) jumpCount = 0;
+        if (jumpCount >= 2) jumpAllowed = false;
+        if (jumpCount < 2) jumpAllowed = true;
+
+
+
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             getBody().setLinearVelocity(5, getBody().getLinearVelocity().y);
             if (!isRightSide) {
@@ -43,8 +54,10 @@ public class Player extends GameEntity {
             getBody().setLinearVelocity(0, getBody().getLinearVelocity().y);
         }
 
-        if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
-            getBody().applyLinearImpulse(new Vector2(0, 10), getBody().getLocalCenter(), true);
+        if (Gdx.input.isKeyJustPressed(Input.Keys.UP) && jumpAllowed) {
+            if (this.getBody().getLinearVelocity().y == 0) jumpCount = 0;
+            jumpCount++;
+            getBody().applyLinearImpulse(new Vector2(0, 5 ), getBody().getLocalCenter(), true);
         }
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
