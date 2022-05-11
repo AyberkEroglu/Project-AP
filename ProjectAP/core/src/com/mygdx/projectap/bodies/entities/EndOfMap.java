@@ -14,7 +14,7 @@ public class EndOfMap {
 
 
     public EndOfMap(Rectangle rectangle, World world) {
-        this.body = BodyHelperService.createBody(rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2, 30, 60, false, world, true, new Object[]{this, "EndOfMap"});
+        this.body = BodyHelperService.createBody(rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2, 30, 60, false, world, new Object[]{this, "EndOfMap"});
     }
 
     public void update(float deltaTime) {

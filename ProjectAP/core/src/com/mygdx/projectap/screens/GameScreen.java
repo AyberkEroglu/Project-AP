@@ -227,6 +227,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
                     //player = (Player) objectsB[0];
                     //endOfMap = (endOfMap) objectsA[0];
                 }
+                game.setScreen(new LevelMenuScreen(game));
             }
         }
     }
