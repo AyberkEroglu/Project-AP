@@ -274,4 +274,6 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
     public Player getPlayer() {
         return player;
     }
+
+
 }
