@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="36" height="20" tilewidth="70" tileheight="70" infinite="0" nextlayerid="6" nextobjectid="52">
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="36" height="20" tilewidth="70" tileheight="70" infinite="0" nextlayerid="7" nextobjectid="52">
  <tileset firstgid="1" source="PlatformTiles.tsx"/>
- <layer id="2" name="Platform" width="36" height="20">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo4BywA7ENmjYFodaayxqidFHiltEKTSDWgDmV2L8pENjt5ACdBhIdw96vJISj4TSBDXTBwxYUcmcUUA5ICX+yU0HpOTFwQpokWZxmYktvHCF4WDNS4PVXbgAvctAGMCW/4ZyPqEXAAC4+hMk
-  </data>
- </layer>
- <layer id="3" name="Desen Katmanı 3" width="36" height="20">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFQxm4DrQDcADFgXYAGhjO7iEnDZggYRAYbOGDC0hB8SigLnBlIJyOTAjI0wsMtrSqP9AOQAOj7sEPkN0TjkcdcvlISzDYwmcUEA8AOckEaA==
-  </data>
- </layer>
+ <tileset firstgid="113" source="Background.tsx"/>
  <objectgroup id="5" name="objects">
   <object id="21" name="player" x="420" y="140" width="70" height="70"/>
   <object id="22" name="enemy" x="1190" y="140" width="70" height="70"/>
@@ -74,4 +65,19 @@
   <object id="49" name="enemy" x="1120" y="840" width="70" height="70"/>
   <object id="50" name="enemy" x="840" y="700" width="70" height="70"/>
  </objectgroup>
+ <layer id="6" name="Background" width="36" height="20">
+  <data encoding="base64" compression="zlib">
+   eJylVlGShSAM65XRs7icRbzcvp0x82I2Lbzdjw6IpYSYtraIaC/b7hHzXeZ4Pmg8xKcb2yemvhxP4yu+n/cnjZh/3fEuYw4jm/o2OVc5YTvjiQPzccdDHF6bmfoy78qH3gV7T7FhYmGe+SrnWIefwzO7i57huFP+NhldjBFPrQKPi8fP3fhgreK90Xm8d8QTz2n2bXLvDBPzthexOE/1LoMwHSYG36WJX/XdutnL5rAoL6wj1jPnV4VJ13p4fTssV/zmDTypnl1dc5jcGZm+nS9qD79TPOrvsK1+N9aA0yHrzuUkvperbbN+oJhcjvG3c7nBelqtP1k/mPUsrfWupmrtAZ4sR6qeMOtZPd51ZITXofZGzo/KKo1Wpv0de1WPTp+VrXDEtVR7o/o77lkHn+rB4cv2XMbf6ZxxZf9ZGc4V7VR1w/3TKFeZBv6aW1prO62t6MJp+D+55e6ItW+CObck
+  </data>
+ </layer>
+ <layer id="2" name="Platform" width="36" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4BywA7ENmjYFodaayxqidFHiltEKTSDWgDmV2L8pENjt5ACdBhIdw96vJISj4TSBDXTBwxYUcmcUUA5ICX+yU0HpOTFwQpokWZxmYktvHCF4WDNS4PVXbgAvctAGMCW/4ZyPqEXAAC4+hMk
+  </data>
+ </layer>
+ <layer id="3" name="Desen Katmanı 3" width="36" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFQxm4DrQDcADFgXYAGhjO7iEnDZggYRAYbOGDC0hB8SigLnBlIJyOTAjI0wsMtrSqP9AOQAOj7sEPkN0TjkcdcvlISzDYwmcUEA8AOckEaA==
+  </data>
+ </layer>
 </map>

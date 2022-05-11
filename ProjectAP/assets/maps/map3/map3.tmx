@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="70" tileheight="70" infinite="0" nextlayerid="10" nextobjectid="34">
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="70" tileheight="70" infinite="0" nextlayerid="11" nextobjectid="34">
  <tileset firstgid="1" source="PlatformTiles.tsx"/>
- <layer id="2" name="Platform" width="20" height="10">
-  <data encoding="base64" compression="zlib">
-   eJxjYMAEVljEKAGUmGcNxDZo2JYObsJlrx2Z5mGTx6cHm/2EwoDa8YbuBmqEOyE7SPUzre0HAOwdDJw=
-  </data>
- </layer>
+ <tileset firstgid="113" source="Background.tsx"/>
  <objectgroup id="5" name="objects">
   <object id="16" name="player" x="70" y="70" width="70" height="70"/>
   <object id="19" name="enemy" x="1260" y="350" width="70" height="70"/>
@@ -43,6 +39,16 @@
   </object>
   <object id="33" name="end" x="0" y="490" width="70" height="70"/>
  </objectgroup>
+ <layer id="10" name="Background" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJwN0ndCzgEAANBfX3t8DbpClJGS5AoyW2ZXEBpIUVcIZWTrCu29ExcI7V1fcQHy/ng3eL1BEPTRzwCDDDHMCKOMMc4Ek0wxzQxfmeUb35lngUWWWGaFVdZYZ4NNtthmh10i7LHPb/4QFRUEIaKJIZY44kkgkSSSSSFMKmmkk8EhDpNJFkc4SjY5HOM4JzhJLqfII5/TFHCGQs5SxDnOU8wFLnKJy1zhKiWUUkY5FVzjOje4yS1uU8kdqrjLPe5TTQ211PGAhzyinsc00MgTntJEMy084zkvaKWNl7ziNW9o5y3veM8HPvKJz3yhg0666KaHXvroZ4BBhhhmhFHGGGeCSaaYZoY5fvCTX8yzwCJLLLPCKmuss8EmW2yzwy4R/vKPA4KQP4SIJoZY4ogngUSSSCaFMKmkkc5/pGJmNg==
+  </data>
+ </layer>
+ <layer id="2" name="Platform" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYMAEVljEKAGUmGcNxDZo2JYObsJlrx2Z5mGTx6cHm/2EwoDa8YbuBmqEOyE7SPUzre0HAOwdDJw=
+  </data>
+ </layer>
  <layer id="3" name="Desen Katmanı 3" width="20" height="10">
   <data encoding="base64" compression="zlib">
    eJxjYBj8QAqJrU9ls4k1TwrNHcSYZ4JFXo1I++gJ8LkJ5h9JKA6n0C7k8EG3l9gwxmYetrCmBgAAxgEDAA==

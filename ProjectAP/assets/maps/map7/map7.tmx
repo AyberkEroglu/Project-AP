@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="22" height="12" tilewidth="70" tileheight="70" infinite="0" nextlayerid="3" nextobjectid="21">
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="22" height="12" tilewidth="70" tileheight="70" infinite="0" nextlayerid="4" nextobjectid="21">
  <tileset firstgid="1" source="PlatformTiles.tsx"/>
- <layer id="1" name="Desen Katmanı 1" width="22" height="12">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgF5AJBIGbGgoXobD/IPjkC8pQAORxsQnpgGBfAFn743ErIPHIAPjPDaWAmCOBKN8RgeqUtGAAANGACug==
-  </data>
- </layer>
+ <tileset firstgid="113" source="Background.tsx"/>
  <objectgroup id="2" name="objects">
   <object id="1" x="70" y="420">
    <polygon points="0,0 0,-420 -70,-420 -70,0"/>
@@ -58,4 +54,14 @@
   <object id="19" name="enemy" x="490" y="420" width="70" height="70"/>
   <object id="20" name="end" x="70" y="630" width="70" height="70"/>
  </objectgroup>
+ <layer id="3" name="Background" width="22" height="12">
+  <data encoding="base64" compression="zlib">
+   eJztzLcNgDAAADCECL13+P9QPPJAtgxeHfIsK6moaWjp6BkYmZhZWNnYOTi5uHl4CelN7+8tIt3pjft+W5gRnw==
+  </data>
+ </layer>
+ <layer id="1" name="Desen Katmanı 1" width="22" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgF5AJBIGbGgoXobD/IPjkC8pQAORxsQnpgGBfAFn743ErIPHIAPjPDaWAmCOBKN8RgeqUtGAAANGACug==
+  </data>
+ </layer>
 </map>

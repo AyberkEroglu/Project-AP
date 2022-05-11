@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="22" height="12" tilewidth="70" tileheight="70" infinite="0" nextlayerid="4" nextobjectid="22">
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="22" height="12" tilewidth="70" tileheight="70" infinite="0" nextlayerid="5" nextobjectid="25">
  <tileset firstgid="1" source="../map6/PlatformTiles.tsx"/>
- <layer id="1" name="Platform" width="22" height="12">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFMGANxDZYsC0d3WCFwx2UuMEKiskFuMKF3mFDK4DsP3L8gx62+MIaX1jicgMlcUcpAACsyAmR
-  </data>
- </layer>
+ <tileset firstgid="113" source="Background.tsx"/>
  <objectgroup id="2" name="objects">
   <object id="1" x="70" y="0">
    <polygon points="0,0 0,560 -70,560 -70,0"/>
@@ -51,7 +47,23 @@
   <object id="18" name="enemy" x="1050" y="210" width="70" height="70"/>
   <object id="20" name="enemy" x="420" y="630" width="70.8134" height="69.9043"/>
   <object id="21" name="end" x="0" y="630" width="70" height="70"/>
+  <object id="22" x="70" y="210">
+   <polygon points="0,0 0,70 350,70 350,0"/>
+  </object>
+  <object id="23" x="490" y="210">
+   <polygon points="0,0 0,70 70,70 70,0"/>
+  </object>
  </objectgroup>
+ <layer id="4" name="Background" width="22" height="12">
+  <data encoding="base64" compression="zlib">
+   eJydkG0OwjAIhifx4yrVXaXKhateZdqLWCJEgoCLP55kY0/p+65tpqn9yXVwM893RTTX3zLH0gO3r8jUEw7gu3anl4nORszg916Yx+AZZJohBuG7E+3bwpvdYB9kwoQzfHpKd9pXmOPgFGSisxfeQ25lZN5Md8/xMsm8Bv5iumunOvzKidxH9hXlWUeQPiW5C9Wdazw0fSIv+z9e/2Kwe+37CwU0eiw=
+  </data>
+ </layer>
+ <layer id="1" name="Platform" width="22" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFMGANxDZYsC0d3WCFwx2UuMEKiskFuMKF3mFDK4DsP3L8gx62+MIaX1jicgMlcUcpAACsyAmR
+  </data>
+ </layer>
  <layer id="3" name="design" width="22" height="12">
   <data encoding="base64" compression="zlib">
    eJxjYBgF6EASia1IIzv0iVQnBcXUNncU4AfhdLIHlNakGFDT3GACAKaSAXA=
