@@ -5,14 +5,14 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.mygdx.projectap.ProjectAP;
 
-public class TimeRaceLevelMenuScreen extends LevelMenuScreen{
+public class TimeRaceLevelMenuScreen extends LevelMenuScreen {
+
     public TimeRaceLevelMenuScreen(ProjectAP game) {
         super(game);
     }
 
     @Override
     public void render(float delta) {
-
         Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 

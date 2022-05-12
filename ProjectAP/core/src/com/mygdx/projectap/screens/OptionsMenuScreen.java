@@ -9,7 +9,6 @@ import com.mygdx.projectap.ProjectAP;
 public class OptionsMenuScreen implements Screen {
 
     ProjectAP game;
-
     Texture optionsMenu;
     Texture backMenuButton;
 
@@ -18,7 +17,6 @@ public class OptionsMenuScreen implements Screen {
 
         optionsMenu = new Texture("menu assets/Options Menu/Options Menu.drawio.png");
         backMenuButton = new Texture("menu assets/Options Menu/Back Menu Button.drawio.png");
-
     }
 
     @Override

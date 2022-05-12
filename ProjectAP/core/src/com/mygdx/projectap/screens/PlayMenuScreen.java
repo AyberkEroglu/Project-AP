@@ -10,7 +10,6 @@ import com.mygdx.projectap.ProjectAP;
 public class PlayMenuScreen implements Screen {
 
     ProjectAP game;
-
     Texture playMenu;
     Texture backMenuButton;
     Texture tutorialButton;
@@ -27,7 +26,6 @@ public class PlayMenuScreen implements Screen {
         timeRaceButton = new Texture("menu assets/Play Menu/Time Race Button.drawio.png");
         infinityModeButton = new Texture("menu assets/Play Menu/Infinity Mode Button.drawio.png");
         backMenuButton = new Texture("menu assets/Play Menu/Back Menu Button.drawio.png");
-
     }
 
     @Override
@@ -88,7 +86,6 @@ public class PlayMenuScreen implements Screen {
                 game.setScreen(new GameScreen(orthographicCamera, game, 10));
             }
         }
-
         game.batch.end();
     }
 

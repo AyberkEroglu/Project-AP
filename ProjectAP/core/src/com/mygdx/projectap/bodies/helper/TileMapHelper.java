@@ -33,7 +33,7 @@ public class TileMapHelper {
     }
 
     public OrthogonalTiledMapRenderer setupMap() {
-        tiledMap = new TmxMapLoader().load("maps/map" + levelNum + "/map" + levelNum +".tmx");
+        tiledMap = new TmxMapLoader().load("maps/map" + levelNum + "/map" + levelNum + ".tmx");
         parseMapObjects(tiledMap.getLayers().get("objects").getObjects());
         return new OrthogonalTiledMapRenderer(tiledMap);
     }

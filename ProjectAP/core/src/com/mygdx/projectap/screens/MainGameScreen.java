@@ -7,10 +7,10 @@ import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.projectap.ProjectAP;
 
 public class MainGameScreen implements Screen {
+
     Texture img;
     float x;
     float y;
-
     ProjectAP game;
 
     public MainGameScreen(ProjectAP game) {
