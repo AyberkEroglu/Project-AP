@@ -24,21 +24,16 @@ public class Enemy {
     private boolean isLeftSide = true;
     float elapsed = 0;
     int bulletPerSecond = 1;
+    private boolean attack;
 
     public Enemy(Rectangle rectangle, World world) {
-        Body body = BodyHelperService.createBody(rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2, 30, 60, false, world, new Object[]{this, "Enemy"});
-        this.body = body;
-
+        this.body = BodyHelperService.createBody(rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2, 30, 60, false, world, new Object[]{this, "Enemy"});
         this.world = world;
         sprite = new Sprite(new Texture("entity assets/zombie.png"));
         sprite.setSize(90, 60);
         float x = body.getPosition().x;
         float y = body.getPosition().y;
         sensorBody = BodyHelperService.createBody(x, y, 30 * 10, 60 * 10, false, world, true, new Object[]{this, "EnemySensor"});
-    }
-
-    public void update() {
-
     }
 
     public void update(float delta) {
@@ -57,7 +52,7 @@ public class Enemy {
                 elapsed = 0;
             }
         }
-        move();
+        this.move();
 
         if (!isLeftSide) {
             sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 + 21, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
@@ -65,7 +60,6 @@ public class Enemy {
         if (isLeftSide) {
             sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 - 21, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
         }
-
 
         elapsed += delta;
     }
@@ -78,12 +72,9 @@ public class Enemy {
         this.player = player;
     }
 
-    private boolean attack;
-
     public void enter() {
         attack = true;
     }
-
 
     public void exit() {
         attack = false;
@@ -97,6 +88,7 @@ public class Enemy {
             }
             isLeftSide = true;
         }
+
         if (attack && player.getBody().getPosition().x > this.getBody().getPosition().x) {
             this.getBody().setLinearVelocity(5, this.getBody().getLinearVelocity().y);
             if (isLeftSide) {
@@ -104,6 +96,7 @@ public class Enemy {
             }
             isLeftSide = false;
         }
+
         if (!attack) {
             this.getBody().setLinearVelocity(this.getBody().getLinearVelocity().x, this.getBody().getLinearVelocity().y);
         }

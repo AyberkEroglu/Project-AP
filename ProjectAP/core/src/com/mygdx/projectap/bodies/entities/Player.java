@@ -6,31 +6,37 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.projectap.ProjectAP;
+import com.mygdx.projectap.bodies.helper.BodyHelperService;
 import com.mygdx.projectap.bodies.helper.Constants;
 
 import static com.mygdx.projectap.bodies.helper.Constants.PPM;
 
-public class Player extends GameEntity {
+public class Player {
 
     public int jumpCount;
     public boolean jumpAllowed;
     private ProjectAP game;
     private boolean isRightSide = true;
     private Sprite sprite;
+    public float speed;
+    public Body body;
+    public World world;
 
-    public Player(float width, float height, Body body) {
-        super(width, height, body);
+    public Player(Rectangle rectangle, World world) {
+        this.body = BodyHelperService.createBody(rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2, 30, 60, false, world, new Object[]{this, "Player"});
         this.speed = 8f;
         this.sprite = new Sprite(new Texture("entity assets/saa.png"));
         this.sprite.setSize(90, 60);
         jumpCount = 0;
         jumpAllowed = true;
+        this.world = world;
     }
 
-    @Override
     public void update() {
         if (this.getBody().getLinearVelocity().y == 0) jumpCount = 0;
         if (jumpCount >= 2) jumpAllowed = false;
@@ -78,13 +84,11 @@ public class Player extends GameEntity {
         }
     }
 
-    @Override
-    public void update(float delta) {
-
-    }
-
-    @Override
     public void render(SpriteBatch batch) {
         sprite.draw(batch);
+    }
+
+    public Body getBody() {
+        return body;
     }
 }

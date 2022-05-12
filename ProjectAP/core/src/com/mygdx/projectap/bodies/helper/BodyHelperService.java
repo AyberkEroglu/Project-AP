@@ -32,7 +32,6 @@ public class BodyHelperService {
         CircleShape circleShape = new CircleShape();
         circleShape.setRadius(width / Constants.PPM);
 
-
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = circleShape;
         fixtureDef.isSensor = true;
