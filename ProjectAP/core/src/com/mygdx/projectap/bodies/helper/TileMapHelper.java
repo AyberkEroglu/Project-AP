@@ -64,7 +64,6 @@ public class TileMapHelper {
 
                 if (rectangleName.equals("end")) {
                     EndOfMap end = new EndOfMap(rectangle, gameScreen.getWorld());
-
                     gameScreen.setEndOfMap(end);
                 }
             }
@@ -77,7 +76,7 @@ public class TileMapHelper {
         Body body = gameScreen.getWorld().createBody(bodyDef);
         Shape shape = createPolygonShape(polygonMapObject);
         Fixture fixture = body.createFixture(shape, 1000);
-        //fixture.setUserData(new Object[]{this, "Wall"});
+        fixture.setUserData(new Object[]{this, "Wall"});
         fixture.setFriction(0.005f);
         shape.dispose();
     }
