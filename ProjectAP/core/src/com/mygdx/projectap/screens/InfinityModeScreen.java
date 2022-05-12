@@ -24,23 +24,22 @@ import static com.mygdx.projectap.bodies.entities.Bullet.bullets;
 import static com.mygdx.projectap.bodies.helper.Constants.PPM;
 
 public class InfinityModeScreen extends GameScreen implements ContactListener {
+
     private float timeCount;
-    //    private Label timeLabel;
-//    private Table timeTable;
+    //private Label timeLabel;
+    //private Table timeTable;
     private float worldTimer;
-    //    private Label countdownLabel;
+    //private Label countdownLabel;
     private BitmapFont font;
-//
 
     public InfinityModeScreen(OrthographicCamera camera, ProjectAP game, int levelNum) {
-        super(camera,game,levelNum);
+        super(camera, game, levelNum);
         //this.countdownLabel = new Label("" + worldTimer, new Label.LabelStyle(new BitmapFont(), Color.LIGHT_GRAY));
         //this.timeLabel = new Label("Time", new Label.LabelStyle(new BitmapFont(), Color.LIGHT_GRAY));
         //this.timeTable = new Table();
         //timeTable.add(timeLabel).expandX().padTop(10);
         //timeTable.row();
         //timeTable.add(countdownLabel).expandX().padTop(10);
-
     }
 
     @Override
@@ -64,14 +63,14 @@ public class InfinityModeScreen extends GameScreen implements ContactListener {
             }
         }
 
-        if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
             game.setScreen(new LevelMenuScreen(game));
         }
 
-        if(Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)){
+        if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)) {
             game.timeScale = ProjectAP.SLOWED_TIME_SCALE;
             adjustVelocities(ProjectAP.SLOWED_TIME_SCALE);
-        } else{
+        } else {
             game.timeScale = ProjectAP.FAST_TIME_SCALE;
             adjustVelocities(ProjectAP.FAST_TIME_SCALE);
         }
@@ -85,19 +84,19 @@ public class InfinityModeScreen extends GameScreen implements ContactListener {
     }
 
     private void adjustVelocities(float timeScale) {
-
         //player.getBody().setLinearVelocity(player.getBody().getLinearVelocity().x * timeScale, player.getBody().getLinearVelocity().y);
         for (Enemy enemy : enemies) {
 
             if (game.timeScale != 1)
                 enemy.getBody().setLinearVelocity(enemy.getBody().getLinearVelocity().x * timeScale, 0);
         }
-        if (bullets != null){
+        if (bullets != null) {
             for (Bullet bl :
                     bullets) {
                 if (timeScale == ProjectAP.SLOWED_TIME_SCALE)
                     bl.getBody().setLinearVelocity((float) (-1 * Math.cos(bl.angle) * ProjectAP.BULLET_SPEED * timeScale), (float) (-1 * Math.sin(bl.angle) * ProjectAP.BULLET_SPEED * timeScale));
-                else bl.getBody().setLinearVelocity((float) (-1 * Math.cos(bl.angle) * ProjectAP.BULLET_SPEED), (float) (-1 * Math.sin(bl.angle) * ProjectAP.BULLET_SPEED));
+                else
+                    bl.getBody().setLinearVelocity((float) (-1 * Math.cos(bl.angle) * ProjectAP.BULLET_SPEED), (float) (-1 * Math.sin(bl.angle) * ProjectAP.BULLET_SPEED));
             }
         }
         world.setGravity(new Vector2(0, ProjectAP.GRAVITY * timeScale));
@@ -141,8 +140,7 @@ public class InfinityModeScreen extends GameScreen implements ContactListener {
                 if (objectsA[1].equals("Player")) {
                     //player = (Player) objectsA[0];
                     bullet = (Bullet) objectsB[0];
-                }
-                else {
+                } else {
                     //player = (Player) objectsB[0];
                     bullet = (Bullet) objectsA[0];
                 }
@@ -156,8 +154,7 @@ public class InfinityModeScreen extends GameScreen implements ContactListener {
                 if (objectsA[1].equals("Enemy")) {
                     enemy = (Enemy) objectsA[0];
                     bullet = (Bullet) objectsB[0];
-                }
-                else {
+                } else {
                     enemy = (Enemy) objectsB[0];
                     bullet = (Bullet) objectsA[0];
                 }
@@ -172,8 +169,7 @@ public class InfinityModeScreen extends GameScreen implements ContactListener {
                 if (objectsA[1].equals("Player")) {
                     //player = (Player) objectsA[0];
                     //endOfMap = (endOfMap) objectsB[0];
-                }
-                else {
+                } else {
                     //player = (Player) objectsB[0];
                     //endOfMap = (endOfMap) objectsA[0];
                 }

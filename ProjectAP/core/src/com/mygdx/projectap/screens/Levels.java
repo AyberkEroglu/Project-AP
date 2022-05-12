@@ -5,9 +5,9 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 
 public class Levels implements Screen {
+
     int levelNo;
     TiledMap levelMap;
-
 
     public Levels(int level) {
         this.levelNo = level;

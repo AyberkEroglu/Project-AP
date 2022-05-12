@@ -35,7 +35,6 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
     protected ProjectAP game;
     protected int levelNum;
     protected EndOfMap end;
-
     public ArrayList<Enemy> enemies;
 
     public GameScreen(OrthographicCamera camera, ProjectAP game, int levelNum) {
@@ -113,38 +112,38 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
             }
         }
 
-        if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
             game.setScreen(new LevelMenuScreen(game));
             Bullet.bullets.clear();
         }
 
-        if(Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)){
+        if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)) {
             game.timeScale = ProjectAP.SLOWED_TIME_SCALE;
             adjustVelocities(ProjectAP.SLOWED_TIME_SCALE);
-        } else{
+        } else {
             game.timeScale = ProjectAP.FAST_TIME_SCALE;
             adjustVelocities(ProjectAP.FAST_TIME_SCALE);
         }
 
 
         batch.end();
-       // box2DDebugRenderer.render(world, camera.combined.scl(PPM));
+        box2DDebugRenderer.render(world, camera.combined.scl(PPM));
     }
 
     private void adjustVelocities(float timeScale) {
-
         //player.getBody().setLinearVelocity(player.getBody().getLinearVelocity().x * timeScale, player.getBody().getLinearVelocity().y);
         for (Enemy enemy : enemies) {
-
-            if (game.timeScale != 1)
-            enemy.getBody().setLinearVelocity(enemy.getBody().getLinearVelocity().x * timeScale, 0);
+            if (game.timeScale != 1) {
+                enemy.getBody().setLinearVelocity(enemy.getBody().getLinearVelocity().x * timeScale, 0);
+            }
         }
-        if (bullets != null){
+        if (bullets != null) {
             for (Bullet bl :
                     bullets) {
                 if (timeScale == ProjectAP.SLOWED_TIME_SCALE)
                     bl.getBody().setLinearVelocity((float) (-1 * Math.cos(bl.angle) * ProjectAP.BULLET_SPEED * timeScale), (float) (-1 * Math.sin(bl.angle) * ProjectAP.BULLET_SPEED * timeScale));
-                else bl.getBody().setLinearVelocity((float) (-1 * Math.cos(bl.angle) * ProjectAP.BULLET_SPEED), (float) (-1 * Math.sin(bl.angle) * ProjectAP.BULLET_SPEED));
+                else
+                    bl.getBody().setLinearVelocity((float) (-1 * Math.cos(bl.angle) * ProjectAP.BULLET_SPEED), (float) (-1 * Math.sin(bl.angle) * ProjectAP.BULLET_SPEED));
             }
         }
         world.setGravity(new Vector2(0, ProjectAP.GRAVITY * timeScale));
@@ -159,7 +158,9 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
         this.player = player;
     }
 
-    public void setEndOfMap(EndOfMap end) { this.end = end; }
+    public void setEndOfMap(EndOfMap end) {
+        this.end = end;
+    }
 
     @Override
     public void beginContact(Contact contact) {
@@ -199,8 +200,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
                 if (objectsA[1].equals("Player")) {
                     //player = (Player) objectsA[0];
                     bullet = (Bullet) objectsB[0];
-                }
-                else {
+                } else {
                     //player = (Player) objectsB[0];
                     bullet = (Bullet) objectsA[0];
                 }
@@ -215,8 +215,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
                 if (objectsA[1].equals("Enemy")) {
                     enemy = (Enemy) objectsA[0];
                     bullet = (Bullet) objectsB[0];
-                }
-                else {
+                } else {
                     enemy = (Enemy) objectsB[0];
                     bullet = (Bullet) objectsA[0];
                 }
@@ -231,8 +230,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
                 if (objectsA[1].equals("Player")) {
                     //player = (Player) objectsA[0];
                     //endOfMap = (endOfMap) objectsB[0];
-                }
-                else {
+                } else {
                     //player = (Player) objectsB[0];
                     //endOfMap = (endOfMap) objectsA[0];
                 }
@@ -278,6 +276,4 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
     public Player getPlayer() {
         return player;
     }
-
-
 }

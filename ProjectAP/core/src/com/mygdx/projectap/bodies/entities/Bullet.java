@@ -15,10 +15,9 @@ public class Bullet {
 
     public static ArrayList<Bullet> bullets;
     public boolean kill;
-    Body body;
+    public Body body;
     public float angle;
     private Sprite sprite;
-
     public boolean fromEnemy;
 
     public Bullet(float x, float y, World world, float angle, boolean fromEnemy) {
@@ -32,7 +31,7 @@ public class Bullet {
         this.angle = angle;
 
         sprite = new Sprite(new Texture("badlogic.jpg"));
-        sprite.setSize(10,10);
+        sprite.setSize(10, 10);
     }
 
     public void update(float deltaTime) {
@@ -41,23 +40,21 @@ public class Bullet {
             this.sprite = null;
             body.getWorld().destroyBody(body);
             bullets.remove(this);
-
+        } else {
+            sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 - 21, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
         }
-
-        else sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 -21, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
-
     }
 
     public void render(SpriteBatch batch) {
         if (!kill)
-        sprite.draw(batch);
+            sprite.draw(batch);
     }
 
     public Body getBody() {
         return body;
     }
 
-    public void dispose(){
+    public void dispose() {
         sprite.getTexture().dispose();
     }
 }

@@ -30,7 +30,7 @@ public class BodyHelperService {
         Body body = world.createBody(bodyDef);
 
         CircleShape circleShape = new CircleShape();
-        circleShape.setRadius(width  / Constants.PPM);
+        circleShape.setRadius(width / Constants.PPM);
 
 
         FixtureDef fixtureDef = new FixtureDef();

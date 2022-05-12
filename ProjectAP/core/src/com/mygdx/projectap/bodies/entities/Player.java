@@ -21,12 +21,11 @@ public class Player extends GameEntity {
     private boolean isRightSide = true;
     private Sprite sprite;
 
-
     public Player(float width, float height, Body body) {
         super(width, height, body);
         this.speed = 8f;
         this.sprite = new Sprite(new Texture("entity assets/saa.png"));
-        this.sprite.setSize(90,60);
+        this.sprite.setSize(90, 60);
         jumpCount = 0;
         jumpAllowed = true;
     }
@@ -37,18 +36,16 @@ public class Player extends GameEntity {
         if (jumpCount >= 2) jumpAllowed = false;
         if (jumpCount < 2) jumpAllowed = true;
 
-
-
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             getBody().setLinearVelocity(speed, getBody().getLinearVelocity().y);
             if (!isRightSide) {
-                sprite.flip(true,false);
+                sprite.flip(true, false);
             }
             isRightSide = true;
         } else if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             getBody().setLinearVelocity(-speed, getBody().getLinearVelocity().y);
             if (isRightSide) {
-                sprite.flip(true,false);
+                sprite.flip(true, false);
             }
             isRightSide = false;
         } else {
@@ -59,8 +56,8 @@ public class Player extends GameEntity {
             if (this.getBody().getLinearVelocity().y == 0) jumpCount = 0;
             jumpCount++;
             if (ProjectAP.staticScale == ProjectAP.FAST_TIME_SCALE)
-                getBody().applyLinearImpulse(new Vector2(0, 8 ), getBody().getLocalCenter(), true);
-            else getBody().applyLinearImpulse(new Vector2(0, 2 ), getBody().getLocalCenter(), true);
+                getBody().applyLinearImpulse(new Vector2(0, 8), getBody().getLocalCenter(), true);
+            else getBody().applyLinearImpulse(new Vector2(0, 2), getBody().getLocalCenter(), true);
         }
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
