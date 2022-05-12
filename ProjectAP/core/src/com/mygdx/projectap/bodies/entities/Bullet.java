@@ -13,12 +13,12 @@ import static com.mygdx.projectap.bodies.helper.Constants.PPM;
 
 public class Bullet {
 
+    private Body body;
+    public float angle;
+    public boolean fromEnemy;
+    private Sprite sprite;
     public static ArrayList<Bullet> bullets;
     public boolean kill;
-    public Body body;
-    public float angle;
-    private Sprite sprite;
-    public boolean fromEnemy;
 
     public Bullet(float x, float y, World world, float angle, boolean fromEnemy) {
         this.body = BodyHelperService.createBody(x, y, 10, 1, false, world, true, new Object[]{this, "Bullet"});
@@ -27,10 +27,10 @@ public class Bullet {
         if (bullets == null) {
             bullets = new ArrayList<>();
         }
-        this.fromEnemy = fromEnemy;
         this.angle = angle;
+        this.fromEnemy = fromEnemy;
 
-        sprite = new Sprite(new Texture("badlogic.jpg"));
+        this.sprite = new Sprite(new Texture("badlogic.jpg"));
         sprite.setSize(10, 10);
     }
 

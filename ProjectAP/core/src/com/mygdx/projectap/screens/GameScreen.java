@@ -125,7 +125,6 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
             adjustVelocities(ProjectAP.FAST_TIME_SCALE);
         }
 
-
         batch.end();
         box2DDebugRenderer.render(world, camera.combined.scl(PPM));
     }
@@ -148,7 +147,6 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
         }
         world.setGravity(new Vector2(0, ProjectAP.GRAVITY * timeScale));
     }
-
 
     public World getWorld() {
         return world;
