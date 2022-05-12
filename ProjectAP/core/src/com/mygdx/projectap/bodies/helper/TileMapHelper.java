@@ -52,15 +52,13 @@ public class TileMapHelper {
                 String rectangleName = mapObject.getName();
 
                 if (rectangleName.equals("player")) {
-                    Body body = BodyHelperService.createBody(rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2, 30, 60, false, gameScreen.getWorld(), new Object[]{this, "Player"});
-
-                    gameScreen.setPlayer(new Player(rectangle.getWidth(), rectangle.getHeight(), body));
+                    Player player = new Player(rectangle, gameScreen.getWorld());
+                    gameScreen.setPlayer(player);
                 }
 
                 if (rectangleName.equals("enemy")) {
                     Enemy enemy = new Enemy(rectangle, gameScreen.getWorld());
                     enemy.setPlayer(gameScreen.getPlayer());
-
                     gameScreen.enemies.add(enemy);
                 }
 
@@ -79,7 +77,7 @@ public class TileMapHelper {
         Body body = gameScreen.getWorld().createBody(bodyDef);
         Shape shape = createPolygonShape(polygonMapObject);
         Fixture fixture = body.createFixture(shape, 1000);
-        fixture.setUserData(new Object[]{this, "Wall"});
+        //fixture.setUserData(new Object[]{this, "Wall"});
         fixture.setFriction(0.005f);
         shape.dispose();
     }

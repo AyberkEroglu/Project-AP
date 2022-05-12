@@ -21,8 +21,8 @@ public class Bullet {
     public boolean fromEnemy;
 
     public Bullet(float x, float y, World world, float angle, boolean fromEnemy) {
+        this.body = BodyHelperService.createBody(x, y, 10, 1, false, world, true, new Object[]{this, "Bullet"});
         float speed = 20;
-        body = BodyHelperService.createBody(x, y, 10, 1, false, world, true, new Object[]{this, "Bullet"});
         body.setLinearVelocity((float) (-1 * Math.cos(angle) * speed), (float) (-1 * Math.sin(angle) * speed));
         if (bullets == null) {
             bullets = new ArrayList<>();
