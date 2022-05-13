@@ -36,7 +36,6 @@ public class BodyHelperService {
             fixture.setUserData(info);
             shape.dispose();
         }
-
         return body;
     }
 }

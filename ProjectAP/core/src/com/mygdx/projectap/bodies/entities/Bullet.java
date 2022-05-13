@@ -26,7 +26,11 @@ public class Bullet {
         this.angle = angle;
         this.fromEnemy = fromEnemy;
 
-        this.sprite = new Sprite(new Texture("badlogic.jpg"));
+        if (fromEnemy) {
+            this.sprite = new Sprite(new Texture("entity assets/saa.png"));
+        } else {
+            this.sprite = new Sprite(new Texture("badlogic.jpg"));
+        }
         sprite.setSize(10, 10);
 
         this.gameScreen = gameScreen;
