@@ -29,10 +29,10 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
     protected Box2DDebugRenderer box2DDebugRenderer;
     protected OrthogonalTiledMapRenderer orthogonalTiledMapRenderer;
     protected TileMapHelper tileMapHelper;
+    protected int levelNum;
+    protected ProjectAP game;
     protected Player player;
     protected Enemy enemy;
-    protected ProjectAP game;
-    protected int levelNum;
     protected EndOfMap end;
     public ArrayList<Enemy> enemies;
     public ArrayList<Bullet> playerBullets;

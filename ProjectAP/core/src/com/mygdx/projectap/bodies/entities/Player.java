@@ -21,19 +21,18 @@ public class Player {
 
     private int jumpCount;
     private boolean jumpAllowed;
-    private ProjectAP game;
     private boolean isRightSide = true;
-    private Sprite sprite;
     private float speed;
     private Body body;
     private World world;
     private GameScreen gameScreen;
+    private Sprite sprite;
 
     public Player(Rectangle rectangle, World world, GameScreen gameScreen) {
-        this.body = BodyHelperService.createBody(rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2, 30, 60, false, world, new Object[]{this, "Player"});
+        this.body = BodyHelperService.createBody(rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2, 30, 60, false, world, false, false, new Object[]{this, "Player"});
         this.speed = 8f;
         this.sprite = new Sprite(new Texture("entity assets/saa.png"));
-        this.sprite.setSize(90, 60);
+        this.sprite.setSize(30, 60);
         jumpCount = 0;
         jumpAllowed = true;
         this.world = world;
@@ -79,10 +78,10 @@ public class Player {
         }
         // Player sprite position
         if (isRightSide) {
-            sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 + 26, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
+            sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
         }
         if (!isRightSide) {
-            sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 - 26, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
+            sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
         }
     }
 

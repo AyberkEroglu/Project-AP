@@ -8,8 +8,6 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.projectap.bodies.helper.BodyHelperService;
 import com.mygdx.projectap.screens.GameScreen;
 
-import java.util.ArrayList;
-
 import static com.mygdx.projectap.bodies.helper.Constants.PPM;
 
 public class Bullet {
@@ -22,7 +20,7 @@ public class Bullet {
     public boolean kill;
 
     public Bullet(float x, float y, World world, float angle, boolean fromEnemy, GameScreen gameScreen) {
-        this.body = BodyHelperService.createBody(x, y, 10, 1, false, world, true, new Object[]{this, "Bullet"});
+        this.body = BodyHelperService.createBody(x, y, 10, 1, false, world, true, true, new Object[]{this, "Bullet"});
         float speed = 20;
         body.setLinearVelocity((float) (-1 * Math.cos(angle) * speed), (float) (-1 * Math.sin(angle) * speed));
         this.angle = angle;
@@ -46,7 +44,7 @@ public class Bullet {
             }
 
         } else {
-            sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 - 21, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
+            sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
         }
     }
 

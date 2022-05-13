@@ -10,34 +10,34 @@ import com.mygdx.projectap.bodies.helper.BodyHelperService;
 import com.mygdx.projectap.bodies.helper.Constants;
 import com.mygdx.projectap.screens.GameScreen;
 
-import java.util.ArrayList;
-
 import static com.mygdx.projectap.bodies.helper.Constants.PPM;
 
 public class Enemy {
 
     // private int decider = 0;
-    private Player player;
-    private Body sensorBody;
-    private Sprite sprite;
-    private World world;
-    private Body body;
-    private boolean isLeftSide = true;
+    private boolean isLeftSide;
     private float elapsed = 0;
     private int bulletPerSecond = 1;
     private boolean attack;
+    private Player player;
+    private Body body;
+    private Body sensorBody;
+    private World world;
     private GameScreen gameScreen;
+    private Sprite sprite;
+
     public boolean kill;
 
     public Enemy(Rectangle rectangle, World world, GameScreen gamescreen) {
-        this.body = BodyHelperService.createBody(rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2, 30, 60, false, world, new Object[]{this, "Enemy"});
+        this.body = BodyHelperService.createBody(rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2, 30, 60, false, world, false, false, new Object[]{this, "Enemy"});
         this.world = world;
         this.sprite = new Sprite(new Texture("entity assets/zombie.png"));
-        sprite.setSize(90, 60);
+        sprite.setSize(30, 60);
         float x = body.getPosition().x;
         float y = body.getPosition().y;
-        sensorBody = BodyHelperService.createBody(x, y, 30 * 10, 60 * 10, false, world, true, new Object[]{this, "EnemySensor"});
+        sensorBody = BodyHelperService.createBody(x, y, 30 * 10, 60 * 10, false, world, true, true, new Object[]{this, "EnemySensor"});
         this.gameScreen = gamescreen;
+        this.isLeftSide = true;
     }
 
     public void update(float delta) {
@@ -62,10 +62,10 @@ public class Enemy {
             this.move();
 
             if (!isLeftSide) {
-                sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 + 21, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
+                sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
             }
             if (isLeftSide) {
-                sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 - 21, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
+                sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
             }
 
             elapsed += delta;

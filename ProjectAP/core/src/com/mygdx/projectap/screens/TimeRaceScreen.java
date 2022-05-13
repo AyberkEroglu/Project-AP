@@ -118,7 +118,8 @@ public class TimeRaceScreen extends GameScreen implements ContactListener {
             }
         }
 
-        font.draw(batch, timeUpdate(Gdx.graphics.getDeltaTime()), Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight());
+        //font.draw(batch, timeUpdate(Gdx.graphics.getDeltaTime()), Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight());
+        font.draw(batch, timeUpdate(Gdx.graphics.getDeltaTime()), player.getBody().getPosition().x * PPM, player.getBody().getPosition().y * PPM);
 
         batch.end();
         box2DDebugRenderer.render(world, camera.combined.scl(PPM));
@@ -167,6 +168,7 @@ public class TimeRaceScreen extends GameScreen implements ContactListener {
                     bullet = (Bullet) objectsA[0];
                 }
                 if (bullet.fromEnemy) {
+                    worldTimer = 15;
                     game.setScreen(new TimeRaceScreen(camera, game, levelNum, worldTimer));
                     if (enemyBullets != null) {
                         enemyBullets.clear();
