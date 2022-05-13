@@ -3,12 +3,17 @@ package com.mygdx.projectap.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.projectap.ProjectAP;
 
 public class TimeRaceLevelMenuScreen extends LevelMenuScreen {
 
+    Texture timeRaceMenu;
+
     public TimeRaceLevelMenuScreen(ProjectAP game) {
         super(game);
+
+        timeRaceMenu = new Texture("menu assets/TimeRace Menu/Time Race Menu.drawio.png");
     }
 
     @Override
@@ -18,7 +23,7 @@ public class TimeRaceLevelMenuScreen extends LevelMenuScreen {
 
         game.batch.begin();
 
-        game.batch.draw(levelMenu, 0, 0, 1600, 900);
+        game.batch.draw(timeRaceMenu, 0, 0, 1600, 900);
         game.batch.draw(backButton, 30, ProjectAP.HEIGHT - 100, 150, 70);
         if (Gdx.input.getY() >= 30 && Gdx.input.getY() <= 100 && Gdx.input.getX() >= 30 && Gdx.input.getX() <= 180) {
             if (Gdx.input.justTouched()) {

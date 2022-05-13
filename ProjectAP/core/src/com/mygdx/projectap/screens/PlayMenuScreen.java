@@ -57,7 +57,7 @@ public class PlayMenuScreen implements Screen {
                 this.dispose();
                 OrthographicCamera orthographicCamera = new OrthographicCamera();
                 orthographicCamera.setToOrtho(false, ProjectAP.WIDTH, ProjectAP.HEIGHT);
-                game.setScreen(new GameScreen(orthographicCamera, game, 0));
+                game.setScreen(new TutorialScreen(orthographicCamera, game, 0));
             }
         }
 
@@ -83,7 +83,7 @@ public class PlayMenuScreen implements Screen {
                 this.dispose();
                 OrthographicCamera orthographicCamera = new OrthographicCamera();
                 orthographicCamera.setToOrtho(false, ProjectAP.WIDTH, ProjectAP.HEIGHT);
-                game.setScreen(new GameScreen(orthographicCamera, game, 10));
+                game.setScreen(new InfinityModeScreen(orthographicCamera, game, 10));
             }
         }
         game.batch.end();
