@@ -16,10 +16,7 @@ import static com.mygdx.projectap.bodies.helper.Constants.PPM;
 public class TimeRaceScreen extends GameScreen implements ContactListener {
 
     private float timeCount;
-    //private Label timeLabel;
-    //private Table timeTable;
     private float worldTimer;
-    //private Label countdownLabel;
     private BitmapFont font;
     private GlyphLayout layout;
 
@@ -27,12 +24,6 @@ public class TimeRaceScreen extends GameScreen implements ContactListener {
         super(camera, game, levelNum);
         timeCount = 0;
         this.worldTimer = worldTimer;
-        //this.countdownLabel = new Label("" + worldTimer, new Label.LabelStyle(new BitmapFont(), Color.LIGHT_GRAY));
-        //this.timeLabel = new Label("Time", new Label.LabelStyle(new BitmapFont(), Color.LIGHT_GRAY));
-        //this.timeTable = new Table();
-        //timeTable.add(timeLabel).expandX().padTop(10);
-        //timeTable.row();
-        //timeTable.add(countdownLabel).expandX().padTop(10);
         font = new BitmapFont();
         layout = new GlyphLayout();
 
@@ -42,7 +33,6 @@ public class TimeRaceScreen extends GameScreen implements ContactListener {
         timeCount += dt;
         if (timeCount >= 1) {
             worldTimer--;
-            //this.countdownLabel.setText((int) worldTimer);
             timeCount = 0;
         }
         layout.setText(font, "" + worldTimer);
