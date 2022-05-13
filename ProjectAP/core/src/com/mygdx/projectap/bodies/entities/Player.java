@@ -13,6 +13,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.projectap.ProjectAP;
 import com.mygdx.projectap.bodies.helper.BodyHelperService;
 import com.mygdx.projectap.bodies.helper.Constants;
+import com.mygdx.projectap.screens.GameScreen;
 
 import static com.mygdx.projectap.bodies.helper.Constants.PPM;
 
@@ -26,8 +27,9 @@ public class Player {
     public float speed;
     public Body body;
     public World world;
+    private GameScreen gameScreen;
 
-    public Player(Rectangle rectangle, World world) {
+    public Player(Rectangle rectangle, World world, GameScreen gameScreen) {
         this.body = BodyHelperService.createBody(rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2, 30, 60, false, world, new Object[]{this, "Player"});
         this.speed = 8f;
         this.sprite = new Sprite(new Texture("entity assets/saa.png"));
@@ -35,6 +37,7 @@ public class Player {
         jumpCount = 0;
         jumpAllowed = true;
         this.world = world;
+        this.gameScreen = gameScreen;
     }
 
     public void update() {
@@ -71,9 +74,8 @@ public class Player {
             if (!isRightSide) {
                 angle = 0;
             }
-            Bullet b = new Bullet(getBody().getPosition().x * Constants.PPM, getBody().getPosition().y
-                    * Constants.PPM, getBody().getWorld(), angle, false);
-            Bullet.bullets.add(b);
+            Bullet b = new Bullet(getBody().getPosition().x * Constants.PPM, getBody().getPosition().y * Constants.PPM, getBody().getWorld(), angle, false, gameScreen);
+            gameScreen.playerBullets.add(b);
         }
         // Player sprite position
         if (isRightSide) {

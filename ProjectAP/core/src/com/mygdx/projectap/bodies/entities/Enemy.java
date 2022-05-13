@@ -10,6 +10,8 @@ import com.mygdx.projectap.bodies.helper.BodyHelperService;
 import com.mygdx.projectap.bodies.helper.Constants;
 import com.mygdx.projectap.screens.GameScreen;
 
+import java.util.ArrayList;
+
 import static com.mygdx.projectap.bodies.helper.Constants.PPM;
 
 public class Enemy {
@@ -25,47 +27,55 @@ public class Enemy {
     float elapsed = 0;
     int bulletPerSecond = 1;
     private boolean attack;
+    private GameScreen gameScreen;
 
-    public Enemy(Rectangle rectangle, World world) {
+    public Enemy(Rectangle rectangle, World world, GameScreen gamescreen) {
         this.body = BodyHelperService.createBody(rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2, 30, 60, false, world, new Object[]{this, "Enemy"});
         this.world = world;
-        sprite = new Sprite(new Texture("entity assets/zombie.png"));
+        this.sprite = new Sprite(new Texture("entity assets/zombie.png"));
         sprite.setSize(90, 60);
         float x = body.getPosition().x;
         float y = body.getPosition().y;
         sensorBody = BodyHelperService.createBody(x, y, 30 * 10, 60 * 10, false, world, true, new Object[]{this, "EnemySensor"});
+        this.gameScreen = gamescreen;
     }
 
     public void update(float delta) {
         if (kill) {
+            dispose();
+            this.sprite = null;
             body.getWorld().destroyBody(body);
-        }
-        sensorBody.setTransform(getBody().getPosition().x, getBody().getPosition().y, getBody().getAngle());
+            gameScreen.enemies.remove(this);
+        } else {
+            sensorBody.setTransform(getBody().getPosition().x, getBody().getPosition().y, getBody().getAngle());
 
-        if (attack) {
-            if (elapsed > 1f / bulletPerSecond) {
+            if (attack) {
+                if (elapsed > 1f / bulletPerSecond) {
 
-                float angle = (float) Math.atan2(getBody().getPosition().y - player.getBody().getPosition().y, getBody().getPosition().x - player.getBody().getPosition().x);
+                    float angle = (float) Math.atan2(getBody().getPosition().y - player.getBody().getPosition().y, getBody().getPosition().x - player.getBody().getPosition().x);
 
-                Bullet b = new Bullet(getBody().getPosition().x * Constants.PPM, getBody().getPosition().y * Constants.PPM, world, angle, true);
-                Bullet.bullets.add(b);
-                elapsed = 0;
+                    Bullet b = new Bullet(getBody().getPosition().x * Constants.PPM, getBody().getPosition().y * Constants.PPM, world, angle, true, gameScreen);
+                    gameScreen.enemyBullets.add(b);
+                    elapsed = 0;
+                }
             }
-        }
-        this.move();
+            this.move();
 
-        if (!isLeftSide) {
-            sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 + 21, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
-        }
-        if (isLeftSide) {
-            sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 - 21, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
-        }
+            if (!isLeftSide) {
+                sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 + 21, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
+            }
+            if (isLeftSide) {
+                sprite.setPosition(getBody().getPosition().x * PPM - sprite.getWidth() / 2 - 21, getBody().getPosition().y * PPM - sprite.getHeight() / 2);
+            }
 
-        elapsed += delta;
+            elapsed += delta;
+        }
     }
 
     public void render(SpriteBatch batch) {
-        sprite.draw(batch);
+        if (!kill) {
+            sprite.draw(batch);
+        }
     }
 
     public void setPlayer(Player player) {
@@ -131,5 +141,9 @@ public class Enemy {
 
     public void setWorld(World world) {
         this.world = world;
+    }
+
+    public void dispose() {
+        sprite.getTexture().dispose();
     }
 }

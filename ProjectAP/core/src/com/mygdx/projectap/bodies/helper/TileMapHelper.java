@@ -1,6 +1,5 @@
 package com.mygdx.projectap.bodies.helper;
 
-import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.objects.PolygonMapObject;
@@ -15,7 +14,6 @@ import com.mygdx.projectap.bodies.entities.EndOfMap;
 import com.mygdx.projectap.screens.GameScreen;
 import com.mygdx.projectap.bodies.entities.Enemy;
 import com.mygdx.projectap.bodies.entities.Player;
-import com.mygdx.projectap.screens.TimeRaceScreen;
 
 import java.util.ArrayList;
 
@@ -52,12 +50,12 @@ public class TileMapHelper {
                 String rectangleName = mapObject.getName();
 
                 if (rectangleName.equals("player")) {
-                    Player player = new Player(rectangle, gameScreen.getWorld());
+                    Player player = new Player(rectangle, gameScreen.getWorld(), gameScreen);
                     gameScreen.setPlayer(player);
                 }
 
                 if (rectangleName.equals("enemy")) {
-                    Enemy enemy = new Enemy(rectangle, gameScreen.getWorld());
+                    Enemy enemy = new Enemy(rectangle, gameScreen.getWorld(), gameScreen);
                     enemy.setPlayer(gameScreen.getPlayer());
                     gameScreen.enemies.add(enemy);
                 }
