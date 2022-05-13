@@ -60,7 +60,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
         }
     }
 
-    void update() {
+    public void update() {
         world.step(1 / 60f, 6, 2);
         cameraUpdate();
 
@@ -88,7 +88,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
         }
     }
 
-    void cameraUpdate() {
+    public void cameraUpdate() {
         Vector3 position = camera.position;
         position.x = Math.round(player.getBody().getPosition().x * PPM * 10) / 10f;
         position.y = Math.round(player.getBody().getPosition().y * PPM * 10) / 10f;
@@ -296,7 +296,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
 
     }
 
-    protected boolean isContact(String id1, String id2, Object a, Object b) {
+    public boolean isContact(String id1, String id2, Object a, Object b) {
         if (a == null || b == null) return false;
         return ((a.equals(id1) && b.equals(id2)) ||
                 (a.equals(id2) && b.equals(id1)));
