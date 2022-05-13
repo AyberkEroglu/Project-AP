@@ -92,4 +92,6 @@ public class Player {
     public Body getBody() {
         return body;
     }
+
+    public Sprite getSprite() {return sprite; }
 }

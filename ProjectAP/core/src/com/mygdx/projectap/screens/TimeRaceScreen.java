@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.physics.box2d.*;
 import com.mygdx.projectap.ProjectAP;
 import com.mygdx.projectap.bodies.entities.Bullet;
@@ -20,6 +21,7 @@ public class TimeRaceScreen extends GameScreen implements ContactListener {
     private float worldTimer;
     //private Label countdownLabel;
     private BitmapFont font;
+    private GlyphLayout layout;
 
     public TimeRaceScreen(OrthographicCamera camera, ProjectAP game, int levelNum, float worldTimer) {
         super(camera, game, levelNum);
@@ -32,6 +34,7 @@ public class TimeRaceScreen extends GameScreen implements ContactListener {
         //timeTable.row();
         //timeTable.add(countdownLabel).expandX().padTop(10);
         font = new BitmapFont();
+        layout = new GlyphLayout();
 
     }
 
@@ -42,6 +45,7 @@ public class TimeRaceScreen extends GameScreen implements ContactListener {
             //this.countdownLabel.setText((int) worldTimer);
             timeCount = 0;
         }
+        layout.setText(font, "" + worldTimer);
         return "" + worldTimer;
     }
 
@@ -118,8 +122,7 @@ public class TimeRaceScreen extends GameScreen implements ContactListener {
             }
         }
 
-        //font.draw(batch, timeUpdate(Gdx.graphics.getDeltaTime()), Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight());
-        font.draw(batch, timeUpdate(Gdx.graphics.getDeltaTime()), player.getBody().getPosition().x * PPM, player.getBody().getPosition().y * PPM);
+        font.draw(batch, timeUpdate(Gdx.graphics.getDeltaTime()), player.getBody().getPosition().x * PPM - layout.width / 2, player.getBody().getPosition().y * PPM + player.getSprite().getHeight() / 2 + 15);
 
         batch.end();
         box2DDebugRenderer.render(world, camera.combined.scl(PPM));
