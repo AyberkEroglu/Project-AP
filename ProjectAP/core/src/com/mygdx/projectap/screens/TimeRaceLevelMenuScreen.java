@@ -8,7 +8,7 @@ import com.mygdx.projectap.ProjectAP;
 
 public class TimeRaceLevelMenuScreen extends LevelMenuScreen {
 
-    Texture timeRaceMenu;
+    private Texture timeRaceMenu;
 
     public TimeRaceLevelMenuScreen(ProjectAP game) {
         super(game);

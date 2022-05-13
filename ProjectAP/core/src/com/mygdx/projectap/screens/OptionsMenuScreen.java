@@ -8,9 +8,9 @@ import com.mygdx.projectap.ProjectAP;
 
 public class OptionsMenuScreen implements Screen {
 
-    ProjectAP game;
-    Texture optionsMenu;
-    Texture backMenuButton;
+    private ProjectAP game;
+    private Texture optionsMenu;
+    private Texture backMenuButton;
 
     public OptionsMenuScreen(ProjectAP game) {
         this.game = game;

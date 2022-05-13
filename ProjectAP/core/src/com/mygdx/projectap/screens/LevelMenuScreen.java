@@ -9,18 +9,18 @@ import com.mygdx.projectap.ProjectAP;
 
 public class LevelMenuScreen implements Screen {
 
-    ProjectAP game;
-    Texture levelMenu;
-    Texture backButton;
-    Texture levelPlayButton1;
-    Texture levelPlayButton2;
-    Texture levelPlayButton3;
-    Texture levelPlayButton4;
-    Texture levelPlayButton5;
-    Texture levelPlayButton6;
-    Texture levelPlayButton7;
-    Texture levelPlayButton8;
-    Texture levelPlayButton9;
+    protected ProjectAP game;
+    protected Texture levelMenu;
+    protected Texture backButton;
+    protected Texture levelPlayButton1;
+    protected Texture levelPlayButton2;
+    protected Texture levelPlayButton3;
+    protected Texture levelPlayButton4;
+    protected Texture levelPlayButton5;
+    protected Texture levelPlayButton6;
+    protected Texture levelPlayButton7;
+    protected Texture levelPlayButton8;
+    protected Texture levelPlayButton9;
 
     public LevelMenuScreen(ProjectAP game) {
         this.game = game;

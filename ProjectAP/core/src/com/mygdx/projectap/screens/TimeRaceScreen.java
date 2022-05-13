@@ -189,7 +189,7 @@ public class TimeRaceScreen extends GameScreen implements ContactListener {
                 }
                 if (!bullet.fromEnemy) {
                     enemy.kill = true;
-                    //enemies.remove(enemy);
+                    bullet.kill = true;
                 }
             }
 

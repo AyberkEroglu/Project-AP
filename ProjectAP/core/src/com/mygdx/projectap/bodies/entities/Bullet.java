@@ -15,11 +15,11 @@ import static com.mygdx.projectap.bodies.helper.Constants.PPM;
 public class Bullet {
 
     private Body body;
+    private Sprite sprite;
+    private GameScreen gameScreen;
     public float angle;
     public boolean fromEnemy;
-    private Sprite sprite;
     public boolean kill;
-    private GameScreen gameScreen;
 
     public Bullet(float x, float y, World world, float angle, boolean fromEnemy, GameScreen gameScreen) {
         this.body = BodyHelperService.createBody(x, y, 10, 1, false, world, true, new Object[]{this, "Bullet"});

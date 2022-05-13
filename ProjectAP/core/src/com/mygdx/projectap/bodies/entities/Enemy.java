@@ -22,12 +22,12 @@ public class Enemy {
     private Sprite sprite;
     private World world;
     private Body body;
-    public boolean kill;
     private boolean isLeftSide = true;
-    float elapsed = 0;
-    int bulletPerSecond = 1;
+    private float elapsed = 0;
+    private int bulletPerSecond = 1;
     private boolean attack;
     private GameScreen gameScreen;
+    public boolean kill;
 
     public Enemy(Rectangle rectangle, World world, GameScreen gamescreen) {
         this.body = BodyHelperService.createBody(rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2, 30, 60, false, world, new Object[]{this, "Enemy"});
