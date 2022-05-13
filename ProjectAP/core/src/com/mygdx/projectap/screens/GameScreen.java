@@ -106,6 +106,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
                     bullet.kill = true;
             }
         }
+
         if (playerBullets != null) {
             for(Bullet bullet : playerBullets) {
                 if(bullet.getBody().getLinearVelocity().x == 0 && bullet.getBody().getLinearVelocity().y == 0) {
@@ -113,6 +114,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
                 }
             }
         }
+
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 

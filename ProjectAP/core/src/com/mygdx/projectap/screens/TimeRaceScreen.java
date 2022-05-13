@@ -10,6 +10,8 @@ import com.mygdx.projectap.ProjectAP;
 import com.mygdx.projectap.bodies.entities.Bullet;
 import com.mygdx.projectap.bodies.entities.Enemy;
 
+import static com.mygdx.projectap.bodies.helper.Constants.PPM;
+
 public class TimeRaceScreen extends GameScreen implements ContactListener {
 
     private float timeCount;
@@ -119,7 +121,7 @@ public class TimeRaceScreen extends GameScreen implements ContactListener {
         font.draw(batch, timeUpdate(Gdx.graphics.getDeltaTime()), Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight());
 
         batch.end();
-        // box2DDebugRenderer.render(world, camera.combined.scl(PPM));
+        box2DDebugRenderer.render(world, camera.combined.scl(PPM));
     }
 
     @Override
