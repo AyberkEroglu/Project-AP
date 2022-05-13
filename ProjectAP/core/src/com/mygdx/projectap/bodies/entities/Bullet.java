@@ -31,7 +31,7 @@ public class Bullet {
         } else {
             this.sprite = new Sprite(new Texture("badlogic.jpg"));
         }
-        sprite.setSize(10, 10);
+        sprite.setSize(15, 15);
 
         this.gameScreen = gameScreen;
     }
