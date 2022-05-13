@@ -80,7 +80,7 @@ public class InfinityModeScreen extends GameScreen implements ContactListener {
         }
 
         batch.end();
-        box2DDebugRenderer.render(world, camera.combined.scl(PPM));
+        //box2DDebugRenderer.render(world, camera.combined.scl(PPM));
     }
 
     @Override

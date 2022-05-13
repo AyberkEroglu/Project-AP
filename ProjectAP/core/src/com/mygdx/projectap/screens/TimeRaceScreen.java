@@ -115,7 +115,7 @@ public class TimeRaceScreen extends GameScreen implements ContactListener {
         font.draw(batch, timeUpdate(Gdx.graphics.getDeltaTime()), player.getBody().getPosition().x * PPM - layout.width / 2, player.getBody().getPosition().y * PPM + player.getSprite().getHeight() / 2 + 15);
 
         batch.end();
-        box2DDebugRenderer.render(world, camera.combined.scl(PPM));
+        //box2DDebugRenderer.render(world, camera.combined.scl(PPM));
     }
 
     @Override

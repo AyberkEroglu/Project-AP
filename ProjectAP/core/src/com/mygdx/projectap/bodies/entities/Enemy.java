@@ -31,7 +31,7 @@ public class Enemy {
     public Enemy(Rectangle rectangle, World world, GameScreen gamescreen) {
         this.body = BodyHelperService.createBody(rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2, 30, 60, false, world, false, false, new Object[]{this, "Enemy"});
         this.world = world;
-        this.sprite = new Sprite(new Texture("entity assets/zombie.png"));
+        this.sprite = new Sprite(new Texture("entity assets/enemy.png"));
         sprite.setSize(30, 60);
         float x = body.getPosition().x;
         float y = body.getPosition().y;

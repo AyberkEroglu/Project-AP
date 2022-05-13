@@ -27,7 +27,7 @@ public class Bullet {
         this.fromEnemy = fromEnemy;
 
         if (fromEnemy) {
-            this.sprite = new Sprite(new Texture("entity assets/saa.png"));
+            this.sprite = new Sprite(new Texture("entity assets/enemybullet.png"));
         } else {
             this.sprite = new Sprite(new Texture("badlogic.jpg"));
         }

@@ -31,7 +31,7 @@ public class Player {
     public Player(Rectangle rectangle, World world, GameScreen gameScreen) {
         this.body = BodyHelperService.createBody(rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2, 30, 60, false, world, false, false, new Object[]{this, "Player"});
         this.speed = 8f;
-        this.sprite = new Sprite(new Texture("entity assets/saa.png"));
+        this.sprite = new Sprite(new Texture("entity assets/player.png"));
         this.sprite.setSize(30, 60);
         jumpCount = 0;
         jumpAllowed = true;

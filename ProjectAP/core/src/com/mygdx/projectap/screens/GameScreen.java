@@ -159,7 +159,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
         }
 
         batch.end();
-        box2DDebugRenderer.render(world, camera.combined.scl(PPM));
+        //box2DDebugRenderer.render(world, camera.combined.scl(PPM));
     }
 
     protected void adjustVelocities(float timeScale) {
