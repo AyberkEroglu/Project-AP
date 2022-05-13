@@ -9,13 +9,13 @@ import com.mygdx.projectap.ProjectAP;
 
 public class PlayMenuScreen implements Screen {
 
-    ProjectAP game;
-    Texture playMenu;
-    Texture backMenuButton;
-    Texture tutorialButton;
-    Texture levelsButton;
-    Texture timeRaceButton;
-    Texture infinityModeButton;
+    private ProjectAP game;
+    private Texture playMenu;
+    private Texture backMenuButton;
+    private Texture tutorialButton;
+    private Texture levelsButton;
+    private Texture timeRaceButton;
+    private Texture infinityModeButton;
 
     public PlayMenuScreen(ProjectAP game) {
         this.game = game;

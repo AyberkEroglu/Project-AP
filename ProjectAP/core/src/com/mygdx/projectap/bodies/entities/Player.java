@@ -19,14 +19,14 @@ import static com.mygdx.projectap.bodies.helper.Constants.PPM;
 
 public class Player {
 
-    public int jumpCount;
-    public boolean jumpAllowed;
+    private int jumpCount;
+    private boolean jumpAllowed;
     private ProjectAP game;
     private boolean isRightSide = true;
     private Sprite sprite;
-    public float speed;
-    public Body body;
-    public World world;
+    private float speed;
+    private Body body;
+    private World world;
     private GameScreen gameScreen;
 
     public Player(Rectangle rectangle, World world, GameScreen gameScreen) {

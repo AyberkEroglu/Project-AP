@@ -9,8 +9,7 @@ import java.util.ArrayList;
 
 public class EndOfMap {
 
-    public boolean end;
-    public Body body;
+    private Body body;
 
     public EndOfMap(Rectangle rectangle, World world) {
         this.body = BodyHelperService.createBody(rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2, 30, 60, true, world, true, new Object[]{this, "EndOfMap"});

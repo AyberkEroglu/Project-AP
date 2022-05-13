@@ -8,11 +8,11 @@ import com.mygdx.projectap.ProjectAP;
 
 public class MainMenuScreen implements Screen {
 
-    ProjectAP game;
-    Texture mainMenu;
-    Texture playButton;
-    Texture exitButton;
-    Texture optionsButton;
+    private ProjectAP game;
+    private Texture mainMenu;
+    private Texture playButton;
+    private Texture exitButton;
+    private Texture optionsButton;
 
     public MainMenuScreen(ProjectAP game) {
         this.game = game;
