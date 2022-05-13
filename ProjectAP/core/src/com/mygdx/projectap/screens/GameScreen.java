@@ -19,7 +19,6 @@ import com.mygdx.projectap.bodies.entities.Bullet;
 
 import java.util.ArrayList;
 
-import static com.mygdx.projectap.bodies.entities.Bullet.bullets;
 import static com.mygdx.projectap.bodies.helper.Constants.PPM;
 
 public class GameScreen extends ScreenAdapter implements ContactListener {
@@ -36,6 +35,8 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
     protected int levelNum;
     protected EndOfMap end;
     public ArrayList<Enemy> enemies;
+    public ArrayList<Bullet> playerBullets;
+    public ArrayList<Bullet> enemyBullets;
 
     public GameScreen(OrthographicCamera camera, ProjectAP game, int levelNum) {
         this.camera = camera;
@@ -50,6 +51,13 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
 
         this.game = game;
         this.levelNum = levelNum;
+
+        if (enemyBullets == null) {
+            enemyBullets = new ArrayList<>();
+        }
+        if (playerBullets == null) {
+            playerBullets = new ArrayList<>();
+        }
     }
 
     void update() {
@@ -59,19 +67,23 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
         batch.setProjectionMatrix(camera.combined);
         orthogonalTiledMapRenderer.setView(camera);
 
-        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            game.setScreen(new MainMenuScreen(game));
-            Bullet.bullets.clear();
-        }
-
         player.update();
-        for (Enemy enemy : enemies) {
-            enemy.update(Gdx.graphics.getDeltaTime());
 
+        for (int i = 0; i < enemies.size(); i++) {
+            if (enemies.get(i) != null) {
+                enemies.get(i).update(Gdx.graphics.getDeltaTime());
+            }
         }
-        if (bullets != null) {
-            for (int i = 0; i < bullets.size(); i++) {
-                bullets.get(i).update(Gdx.graphics.getDeltaTime());
+
+        if (enemyBullets != null) {
+            for (int i = 0; i < enemyBullets.size(); i++) {
+                enemyBullets.get(i).update(Gdx.graphics.getDeltaTime());
+            }
+        }
+
+        if (playerBullets != null) {
+            for (int i = 0; i < playerBullets.size(); i++) {
+                playerBullets.get(i).update(Gdx.graphics.getDeltaTime());
             }
         }
     }
@@ -87,11 +99,18 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
     @Override
     public void render(float delta) {
         this.update();
-        if (bullets != null) {
-            for (Bullet bullet :
-                    Bullet.bullets) {
+
+        if (enemyBullets != null) {
+            for (Bullet bullet : enemyBullets) {
                 if (bullet.getBody().getLinearVelocity().x == 0 && bullet.getBody().getLinearVelocity().y == 0)
                     bullet.kill = true;
+            }
+        }
+        if (playerBullets != null) {
+            for(Bullet bullet : playerBullets) {
+                if(bullet.getBody().getLinearVelocity().x == 0 && bullet.getBody().getLinearVelocity().y == 0) {
+                    bullet.kill = true;
+                }
             }
         }
         Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -102,19 +121,31 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
         batch.begin();
 
         player.render(batch);
+
         for (Enemy enemy : enemies) {
             enemy.render(batch);
         }
 
-        if (bullets != null) {
-            for (int i = 0; i < bullets.size(); i++) {
-                bullets.get(i).render(batch);
+        if (enemyBullets != null) {
+            for (int i = 0; i < enemyBullets.size(); i++) {
+                enemyBullets.get(i).render(batch);
+            }
+        }
+
+        if (playerBullets != null) {
+            for (int i = 0; i < playerBullets.size(); i++) {
+                playerBullets.get(i).render(batch);
             }
         }
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
             game.setScreen(new LevelMenuScreen(game));
-            Bullet.bullets.clear();
+            if (enemyBullets != null) {
+                enemyBullets.clear();
+            }
+            if (playerBullets != null) {
+                playerBullets.clear();
+            }
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)) {
@@ -129,16 +160,23 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
         box2DDebugRenderer.render(world, camera.combined.scl(PPM));
     }
 
-    private void adjustVelocities(float timeScale) {
+    protected void adjustVelocities(float timeScale) {
         //player.getBody().setLinearVelocity(player.getBody().getLinearVelocity().x * timeScale, player.getBody().getLinearVelocity().y);
         for (Enemy enemy : enemies) {
             if (game.timeScale != 1) {
                 enemy.getBody().setLinearVelocity(enemy.getBody().getLinearVelocity().x * timeScale, 0);
             }
         }
-        if (bullets != null) {
-            for (Bullet bl :
-                    bullets) {
+        if (enemyBullets != null) {
+            for (Bullet bl : enemyBullets) {
+                if (timeScale == ProjectAP.SLOWED_TIME_SCALE)
+                    bl.getBody().setLinearVelocity((float) (-1 * Math.cos(bl.angle) * ProjectAP.BULLET_SPEED * timeScale), (float) (-1 * Math.sin(bl.angle) * ProjectAP.BULLET_SPEED * timeScale));
+                else
+                    bl.getBody().setLinearVelocity((float) (-1 * Math.cos(bl.angle) * ProjectAP.BULLET_SPEED), (float) (-1 * Math.sin(bl.angle) * ProjectAP.BULLET_SPEED));
+            }
+        }
+        if (playerBullets != null) {
+            for (Bullet bl : playerBullets) {
                 if (timeScale == ProjectAP.SLOWED_TIME_SCALE)
                     bl.getBody().setLinearVelocity((float) (-1 * Math.cos(bl.angle) * ProjectAP.BULLET_SPEED * timeScale), (float) (-1 * Math.sin(bl.angle) * ProjectAP.BULLET_SPEED * timeScale));
                 else
@@ -146,18 +184,6 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
             }
         }
         world.setGravity(new Vector2(0, ProjectAP.GRAVITY * timeScale));
-    }
-
-    public World getWorld() {
-        return world;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
-    public void setEndOfMap(EndOfMap end) {
-        this.end = end;
     }
 
     @Override
@@ -174,39 +200,45 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
                     ((Enemy) objectsA[0]).enter();
                 }
             }
-            if (objectsB[1].equals("Bullet") || objectsA[1].equals("Bullet")) {
-                Bullet bullet;
-                if (objectsB[1].equals("Bullet")) {
-                    bullet = (Bullet) objectsB[0];
-                } else {
-                    bullet = (Bullet) objectsA[0];
-                }
 
-                if (isContact("Enemy", "Bullet", objectsA[1], objectsB[1]) && bullet.fromEnemy) {
-
-                } else if (isContact("EnemySensor", "Bullet", objectsA[1], objectsB[1])) {
-
-                } else if (isContact("Player", "Bullet", objectsA[1], objectsB[1]) && !bullet.fromEnemy) {
-
-                } else {
-                    bullet.kill = true;
+            if (isContact("Bullet", "Bullet", objectsA[1], objectsB[1])) {
+                Bullet bullet1 = (Bullet) objectsA[0];
+                Bullet bullet2 = (Bullet) objectsB[0];
+                if (bullet1.fromEnemy) {
+                    bullet1.kill = true;
+                } else if (bullet2.fromEnemy) {
+                    bullet2.kill = true;
                 }
             }
+
+            if (isContact("Bullet", "Wall", objectsA[1], objectsB[1])) {
+                Bullet bullet;
+                if (objectsA[1].equals("Bullet")) {
+                    bullet = (Bullet) objectsA[0];
+                } else {
+                    bullet = (Bullet) objectsB[0];
+                }
+                bullet.kill = true;
+            }
+
             if (isContact("Player", "Bullet", objectsA[1], objectsB[1])) {
                 Bullet bullet;
-                //Player player;
                 if (objectsA[1].equals("Player")) {
-                    //player = (Player) objectsA[0];
                     bullet = (Bullet) objectsB[0];
                 } else {
-                    //player = (Player) objectsB[0];
                     bullet = (Bullet) objectsA[0];
                 }
                 if (bullet.fromEnemy) {
                     game.setScreen(new GameScreen(camera, game, levelNum));
-                    Bullet.bullets.clear();
+                    if (enemyBullets != null) {
+                        enemyBullets.clear();
+                    }
+                    if (playerBullets != null) {
+                        playerBullets.clear();
+                    }
                 }
             }
+
             if (isContact("Enemy", "Bullet", objectsA[1], objectsB[1])) {
                 Bullet bullet;
                 Enemy enemy;
@@ -219,21 +251,18 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
                 }
                 if (!bullet.fromEnemy) {
                     enemy.kill = true;
-                    enemies.remove(enemy);
+                    //enemies.remove(enemy);
                 }
             }
+
             if (isContact("Player", "EndOfMap", objectsA[1], objectsB[1])) {
-                EndOfMap endOfMap;
-                Player player;
-                if (objectsA[1].equals("Player")) {
-                    //player = (Player) objectsA[0];
-                    //endOfMap = (endOfMap) objectsB[0];
-                } else {
-                    //player = (Player) objectsB[0];
-                    //endOfMap = (endOfMap) objectsA[0];
-                }
                 game.setScreen(new LevelMenuScreen(game));
-                Bullet.bullets.clear();
+                if (enemyBullets != null) {
+                    enemyBullets.clear();
+                }
+                if (playerBullets != null) {
+                    playerBullets.clear();
+                }
             }
         }
     }
@@ -265,7 +294,7 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
 
     }
 
-    private boolean isContact(String id1, String id2, Object a, Object b) {
+    protected boolean isContact(String id1, String id2, Object a, Object b) {
         if (a == null || b == null) return false;
         return ((a.equals(id1) && b.equals(id2)) ||
                 (a.equals(id2) && b.equals(id1)));
@@ -273,5 +302,17 @@ public class GameScreen extends ScreenAdapter implements ContactListener {
 
     public Player getPlayer() {
         return player;
+    }
+
+    public World getWorld() {
+        return world;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public void setEndOfMap(EndOfMap end) {
+        this.end = end;
     }
 }
