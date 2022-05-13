@@ -81,7 +81,7 @@ public class TutorialScreen extends GameScreen implements ContactListener {
         }
 
         batch.end();
-        box2DDebugRenderer.render(world, camera.combined.scl(PPM));
+        //box2DDebugRenderer.render(world, camera.combined.scl(PPM));
     }
 
     public void beginContact(Contact contact) {
